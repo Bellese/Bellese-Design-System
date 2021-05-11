@@ -1,0 +1,40 @@
+.dont-break-out, a
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word
+  word-wrap: break-word
+  -ms-word-break: break-all
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all
+  /* Instead use this non-standard one: */
+  word-break: break-word
+
+.dont-break-out
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto
+  -moz-hyphens: auto
+  -webkit-hyphens: auto
+  hyphens: auto
+
+.sr-only
+  border: 0 !important
+  clip: rect(1px, 1px, 1px, 1px) !important
+  -webkit-clip-path: inset(50%) !important
+  clip-path: inset(50%) !important
+  height: 1px !important
+  margin: -1px !important
+  overflow: hidden !important
+  padding: 0 !important
+  position: absolute !important
+  width: 1px !important
+  white-space: nowrap !important
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active
+  clip: auto !important
+  -webkit-clip-path: none !important
+  clip-path: none !important
+  height: auto !important
+  margin: auto !important
+  overflow: visible !important
+  width: auto !important
+  white-space: normal !important

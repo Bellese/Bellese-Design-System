@@ -1,0 +1,143 @@
+$default-font-size:     18px
+$default-line-height:   32px
+$med-font-size:         16px
+$mobile-font-size:      20px
+$mobile-line-height:    32px
+$ultra-small-font-size: 12px
+$small-font-size:       14px
+$lead-font-size:        24px
+$mobile-lead-font-size: 28px
+$med-lead-font-size:    20px
+$h1-font-size:          64px
+$h1-line-height:        108.8px
+$h2-font-size:          42px
+$h2-line-height:        56.7px
+$h3-font-size:          32px
+$h3-line-height:        45px
+$h4-font-size:          $lead-font-size
+$h4-line-height:        30px
+$h5-font-size:          $default-font-size
+$h5-line-height:        30px
+
+*
+  font-family: 'Nunito Sans', sans-serif
+
+h1
+  font-size: $h1-font-size
+  line-height: $h1-font-size
+  font-weight: 600
+  margin: $spacing-v-default 0 ($h1-line-height - $h1-font-size) 0
+  &.micro
+    font-size: $default-font-size
+    line-height: $default-font-size
+    text-transform: uppercase
+    font-weight: 900
+    margin: 0
+
+h2
+  font-size: $h2-font-size
+  line-height: $h2-line-height
+  font-weight: 800
+  margin: $spacing-v-default 0 ($h2-line-height - $h2-font-size) 0
+
+h3
+  font-size: $h3-font-size
+  line-height: $h3-line-height
+  font-weight: 900
+  margin: $spacing-v-default 0 ($h3-line-height - $h3-font-size) 0
+
+h4
+  font-size: $h4-font-size
+  line-height: $h4-line-height
+  font-weight: 600
+  margin: $spacing-v-default 0 ($h4-line-height - $h4-font-size) 0
+
+h5
+  font-size: $default-font-size
+  line-height: $default-line-height
+  font-weight: 600
+  margin: $spacing-v-default 0 ($h5-line-height - $h5-font-size) 0
+
+p, ul, li
+  font-size: $default-font-size
+  font-weight: 400
+  line-height: $default-line-height
+  margin-bottom: 24px
+  margin-top: 0
+
+.lead
+  font-size: $lead-font-size
+  font-weight: 400
+  line-height: 36px
+
+.small
+  font-size: $small-font-size
+  font-weight: 400
+
+.fine
+  font-size: $ultra-small-font-size
+  line-height: $small-font-size
+  font-weight: 400
+
+strong
+  font-weight: 800
+
+h2, h3, h4, h5, h6
+  &.subtitle
+    font-weight: normal
+    opacity: 0.8
+
+a
+  color: $primary-purple
+  text-decoration: underline
+  &:hover
+    color: $primary-purple-accent
+
+article blockquote:not(.instagram-media)
+  margin: 0 0 $spacing-v-default 0
+  padding: 16px 40px 16px 80px
+  position: relative
+  p
+    margin: 0
+  .attribution
+    margin: $spacing-v-default 0 0 0
+    .name, .title
+      display: block
+    .name
+      @extend .lead
+    .title
+      @extend .small
+  &:before
+    content: " "
+    width: 56px
+    height: 100%
+    position: absolute
+    left: 0
+    top: 0
+    bottom: 12px
+    background-image: url('../../images/icons/quote-left-solid.svg')
+    background-position: top right
+    background-repeat: no-repeat
+    background-size: 60%
+    border-left: solid $border-width-base*3 $link-color
+    opacity: $default-fade-opacity
+
+
+#app
+  &.darkMode
+    article > blockquote
+      &:before
+        border-color: $link-color-dark
+        background-image: url('../../images/icons/quote-left-solid-white.svg')
+
+/* small tablet */
+@media all and (max-width: $guide-content-width * 1.06)
+  p, ul, li
+    font-size: $mobile-font-size
+    font-weight: 400
+    line-height: $mobile-line-height
+
+  .lead
+    font-size: $mobile-lead-font-size
+    font-weight: 400
+    line-height: 36px

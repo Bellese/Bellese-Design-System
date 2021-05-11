@@ -1,0 +1,132 @@
+.alert
+  display: block
+  box-sizing: border-box
+  position: relative
+  padding: $spacing-v-default/2 $spacing-h-default*2 $spacing-v-default/2 $spacing-h-default*3
+  box-shadow: $shadow-neumorphic-light
+  border-radius: $border-radius-base
+  border: $border-width-base*1.5 solid $background-light
+  margin-bottom: $spacing-v-default*2
+  h2, h3, h4, h5, h6
+    margin-top: $spacing-v-default/2
+    margin-bottom: $spacing-h-default
+    font-weight: 800
+  p
+    margin-bottom: $spacing-v-default/2
+  &.placeholder
+    padding-left: 0
+    background-color: unset
+    box-shadow: none
+  &.primary
+    background: rgba($primary-purple-accent, $disabled-opacity/12)
+    background-blend-mode: multiply
+    box-shadow: $shadow-neumorphic-primary
+    border-color: $primary-purple
+    &:before
+      position: absolute
+      box-sizing: content-box
+      left: 0
+      top: 0
+      bottom: 0
+      width: $spacing-base*3
+      background: $gradient-primary
+      content: ' '
+      border-top-left-radius: $border-radius-base - $border-width-base*1.5
+      border-bottom-left-radius: $border-radius-base - $border-width-base*1.5
+  &.error
+    background: rgba($error, $disabled-opacity/12)
+    background-blend-mode: multiply
+    box-shadow: $shadow-neumorphic-error
+    border-color: $error-outline
+    &:before
+      position: absolute
+      box-sizing: content-box
+      left: 0
+      top: 0
+      bottom: 0
+      width: $spacing-base*3
+      background: $gradient-error
+      content: ' '
+      border-top-left-radius: $border-radius-base - $border-width-base*1.5
+      border-bottom-left-radius: $border-radius-base - $border-width-base*1.5
+  &.success
+    background: rgba($success, $disabled-opacity/12)
+    background-blend-mode: multiply
+    box-shadow: $shadow-neumorphic-success
+    border-color: $success-outline
+    &:before
+      position: absolute
+      box-sizing: content-box
+      left: 0
+      top: 0
+      bottom: 0
+      width: $spacing-base*3
+      background: $gradient-success
+      content: ' '
+      border-top-left-radius: $border-radius-base - $border-width-base*1.5
+      border-bottom-left-radius: $border-radius-base - $border-width-base*1.5
+  &.info
+    background: rgba($info, $disabled-opacity/12)
+    background-blend-mode: multiply
+    box-shadow: $shadow-neumorphic-info
+    border-color: $info-outline
+    &:before
+      position: absolute
+      box-sizing: content-box
+      left: 0
+      top: 0
+      bottom: 0
+      width: $spacing-base*3
+      background: $gradient-info
+      content: ' '
+      border-top-left-radius: $border-radius-base - $border-width-base*1.5
+      border-bottom-left-radius: $border-radius-base - $border-width-base*1.5
+  /*! purgecss start ignore */
+  &.slim
+    margin-bottom: $spacing-v-default
+    p
+      margin-bottom: 0
+  /*! purgecss end ignore */
+
+.covid-warning
+  text-decoration: line-through
+  &:after
+    text-decoration: none
+    position: relative
+    margin-top: 16px
+    margin-bottom: 16px
+    display: inline-block
+    width: 100%
+    font-size: $small-font-size
+    line-height: $small-font-size + ($spacing-base/2)
+    @extend .alert
+    @extend .alert.error
+    padding: $spacing-v-default $spacing-h-default
+    content: "Our office is currently closed to help prevent the spread of COVID-19.  We are happy to meet with you via video conference."
+
+
+#app
+  &.darkMode
+    .alert
+      box-shadow: $shadow-neumorphic-dark
+      border: $border-width-base solid $background-dark
+      background: $background-dark-lighter
+      &.placeholder
+        padding-left: 0
+        background-color: unset
+        box-shadow: none
+      &.success
+        background: rgba($success, $disabled-opacity/12)
+        background-blend-mode: multiply
+        box-shadow: $shadow-neumorphic-dark
+        border-color: $success-outline
+      &.error
+        background: rgba($error, $disabled-opacity/12)
+        background-blend-mode: multiply
+        box-shadow: $shadow-neumorphic-dark
+        border-color: $error-outline
+      &.info
+        background: rgba($info, $disabled-opacity/12)
+        background-blend-mode: multiply
+        box-shadow: $shadow-neumorphic-dark
+        border-color: $info-outline

@@ -1,0 +1,35 @@
+#devtools
+  width: 240px
+  position: fixed
+  padding: 16px
+  z-index: 999999
+  background-color: $white-darker
+  left: 0
+  bottom: 20px
+  top: 100px
+  border-top-right-radius: $border-radius-base
+  border-bottom-right-radius: $border-radius-base
+  box-shadow: $shadow-neumorphic-light
+  overflow: scroll
+  div
+    margin-bottom: 18px
+  h1
+    font-size: 20px
+    font-weight: 900
+    line-height: normal
+  h2
+    font-size: 18px
+    font-weight: 600
+    line-height: normal
+
+#showDevTools
+  position: fixed
+  z-index: 999999
+  left: 24px
+  bottom: 14px
+
+#app
+  &.darkMode
+    #devtools
+      background-color: $dark-gray-darker
+      box-shadow: $shadow-neumorphic-dark

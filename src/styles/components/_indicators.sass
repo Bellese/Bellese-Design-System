@@ -1,0 +1,44 @@
+.indicator
+  position: relative
+  display: inline-block
+  box-sizing: border-box
+  width: 1em
+  height: 1em
+  border-radius: .5em
+  margin-bottom: -4px
+  margin-right: $spacing-h-default/2
+  background: $disabled-gray
+  box-shadow: $shadow-neumorphic-light
+  border: $border-width-base solid $background-light
+  &:after
+    position: absolute
+    background-repeat: no-repeat
+    background-size: 50% 50%
+    background-position: 50% 50%
+    overflow: visible
+    content: ' '
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+  &.enabled
+    background: $gradient-success
+    border-color: $success-outline
+    box-shadow: $shadow-neumorphic-success
+    &:after
+      background-image: url('../../images/icons/check-light.svg')
+  &.disabled
+    background: $gradient-error
+    border-color: $error-outline
+    box-shadow: $shadow-neumorphic-error
+    &:after
+      background-image: url('../../images/icons/times-light.svg')
+
+#app
+  &.darkMode
+    .indicator
+      box-shadow: $shadow-neumorphic-dark
+      &.disabled
+        background: $gradient-error-dark
