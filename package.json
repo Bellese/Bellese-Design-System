@@ -1,0 +1,19 @@
+{
+  "name": "bellese-design-system",
+  "version": "0.1.0",
+  "description": "Design System powering Bellese open source projects and Bellese.io.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bellese/Bellese-Design-System.git"
+  },
+  "author": "Mark Adkins [@markadkn]",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bellese/Bellese-Design-System/issues"
+  },
+  "homepage": "https://github.com/Bellese/Bellese-Design-System#readme"
+}
