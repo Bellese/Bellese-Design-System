@@ -1,0 +1,156 @@
+@import 'common'
+@import 'hero'
+
+.article
+  margin-top: $spacing-v-default
+  background-color: $background-light
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    margin-left: calc(50% - #{$guide-content-width/2})
+  ::selection
+    background: rgba($link-color-dark, 0.6)
+  ::-moz-selection
+    background: rgba($link-color-dark, 0.6)
+  .side-sticky
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+      display: none
+    aside
+      position: absolute
+      left: calc((100vw - #{$guide-content-width}) / 2 - 60px)
+      top: 224px
+      width: 50px
+    &.no-feature
+      aside
+        top: 152px
+  article
+    /*! purgecss start ignore */
+    position: relative
+    p, a, em, strong, ul, li, h1, h2, h3, h4, h5, h6
+      font-family: 'PT Serif', serif
+    h1.title, h2.title, h4.title
+      font-size: $h2-font-size
+      line-height: $h2-line-height
+      font-family: 'PT Serif', serif
+      font-weight: 400
+      margin-bottom: 0
+      a
+        text-decoration: none
+    >div
+      >h2
+        font-size: $h3-font-size
+        line-height: $h3-line-height
+      >h3
+        font-size: $h4-font-size
+        line-height: $h4-line-height
+    >a
+      text-decoration: none
+      display: inline-block
+      margin-bottom: $spacing-v-default*2
+      h4
+        margin-top: $spacing-base
+    h4.title
+      font-size: $h4-font-size
+      line-height: $h4-line-height
+    h2.subtitle, h3.subtitle
+      font-family: 'Nunito Sans', sans-serif
+      font-size: $h4-font-size
+      line-height: $h4-line-height
+      opacity: $default-fade-opacity
+      margin-top: 0
+    p.post-meta
+      font-family: 'Nunito Sans', sans-serif
+      margin: $spacing-base 0
+      a
+        font-family: 'Nunito Sans', sans-serif
+        text-decoration: none
+    p.story-meta
+      margin: 0
+    .authors-container
+      display: flex
+      align-items: center
+      justify-content: left
+      flex-direction: row
+      flex-wrap: wrap
+      margin-top: $spacing-v-default
+      .author-meta
+        display: flex
+        align-items: center
+        margin-right: $spacing-h-default
+        span
+          a
+            font-family: 'Nunito Sans', sans-serif
+            text-decoration: none
+        img
+          width: 40px
+          height: 40px
+          border-radius: 20px
+          margin-right: $spacing-h-default
+    figure.featuredImage
+      margin-top: -12px
+      margin-bottom: $spacing-v-default
+      img
+        width: 0
+        height: 0
+        opacity: 0
+    figure figcaption, img + em
+      display: block
+      font-family: 'Nunito Sans', sans-serif
+      font-size: $small-font-size
+      line-height: $med-font-size
+      opacity: $default-fade-opacity
+      font-style: normal
+      text-align: center
+      margin-bottom: $spacing-v-default
+    img[src$='#align-left']
+      max-width: 50%
+      float: left
+    ul, ol
+      position: relative
+      text-overflow: ellipsis
+      overflow: hidden
+    li
+      text-overflow: ellipsis
+      &:before
+        content: ''
+        position: absolute
+        left: -8px
+        top: $default-font-size - $default-font-size/4
+        background-color: $dark-gray-darkest
+        width: 6px
+        height: 6px
+        border-radius: 3px
+    &:after
+      width: 70px
+      height: 65px
+      border-radius: $border-width-base*1.5
+      content: " "
+      background-image: url('../../images/icons/ellipsis-h-dark.svg')
+      position: absolute
+      left: calc(50% - 20px)
+      bottom: -60px
+      opacity: .4
+      background-size: contain
+      background-repeat: no-repeat
+    /*! purgecss end ignore */
+  figure
+    margin: 0
+    padding: 0
+
+#app
+  &.darkMode
+    .press-kit-container
+      aside.press-kit-aside
+        opacity: $default-fade-opacity
+    .article
+      background-color: $background-dark
+      article:after
+        background-image: url('../../images/icons/ellipsis-h-light.svg')
+
+/* sm desktop */
+//@media all and (max-width: $guide-content-width * 1.66)
+//  .article
+//    article
+
+/* small tablet */
+@media all and (max-width: $guide-content-width * 1.06)
+  .side-sticky
+    display: none

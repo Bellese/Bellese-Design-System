@@ -1,0 +1,27 @@
+//html
+//  overscroll-behavior: none
+
+/*! purgecss start ignore */
+.slide-down-enter-active, .fade-enter-active
+  transition: all 500ms ease
+
+.slide-down-leave-active, .fade-leave-active
+  transition: all 250ms ease
+
+.fade-enter, .fade-leave-to, .slide-down-enter, .slide-down-leave-to
+  opacity: 0
+  max-height: 0
+  height: auto
+
+.fade-enter-to, .fade-leave, .slide-down-enter-to, .slide-down-leave
+  opacity: 1
+  max-height: 600px
+  height: auto
+
+.slide-down-enter, .slide-down-leave-to
+  transform: translateY(-10px)
+
+.slide-down-enter-to, .slide-down-leave
+  transform: translateY(0px)
+
+/*! purgecss end ignore */

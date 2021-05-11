@@ -1,0 +1,43 @@
+@import 'common'
+.pagination
+  display: flex
+  justify-content: center
+  margin-bottom: $spacing-v-default*2
+  .pagination-container
+    display: inline-block
+    button
+      padding: $spacing-v-default/3 $spacing-h-default
+      margin-left: $spacing-h-default/4
+      margin-right: $spacing-h-default/4
+      position: relative
+      svg
+        height: $default-font-size
+        width: $default-font-size
+        position: absolute
+        margin-top: 3px
+        outline: none
+        path
+          fill: $secondary-blue !important
+      &.start
+        padding-left: $spacing-h-default*2
+        svg
+          left: $spacing-h-default
+      &.end
+        padding-right: $spacing-h-default*2
+        svg
+          right: $spacing-h-default
+      &.current
+        background: $gradient-primary, $primary-purple
+        color: $white
+        opacity: 1
+        border: $border-width-base*1.5 solid $primary-purple
+      &:not(:disabled)
+        color: $secondary-blue
+      &:hover:not(:disabled)
+        @extend button.gradient
+        svg
+          path
+            fill: $primary-purple !important
+      &:disabled
+        @extend button:hover
+        border: $border-width-base*1.5 solid rgba($disabled-gray, $disabled-opacity)

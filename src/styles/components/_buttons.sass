@@ -1,0 +1,144 @@
+button, a.button
+  cursor: pointer
+  position: relative
+  box-shadow: none
+  border: none
+  box-sizing: border-box
+  font-size: $default-font-size
+  padding: $spacing-v-default/2 $spacing-h-default*2
+  border-radius: $default-font-size + $spacing-v-default/2
+  background-color: $background-light
+  color: $dark-gray-darkest
+  margin: $spacing-v-default/4 0
+  text-decoration: none
+  text-align: center
+  display: inline-block
+  &:hover
+    background-color: darken($background-light, 10%)
+  &.default
+    background-color: $background-light
+    border: $dark-gray $border-width-base solid
+  &.gradient
+    background-color: $background-light
+    color: $secondary-blue
+    transition: all 250ms ease
+    z-index: 1
+    &.white-bkg
+      &:before
+        background-color: $white
+    &:before
+      content: " "
+      border-radius: ($default-font-size + $spacing-v-default/2)
+      z-index: -1
+      position: absolute
+      display: inline-block
+      top: 0
+      bottom: 0
+      left: 0
+      right: 0
+      width: 100%
+      height: 100%
+      background-color: $background-light
+      transition: all 250ms ease
+    &:after
+      content: " "
+      border-radius: ($default-font-size + $spacing-v-default/2) + 2
+      z-index: -2
+      position: absolute
+      display: inline-block
+      top: -3px
+      bottom: -3px
+      left: -3px
+      right: -3px
+      width: calc(100% + 6px)
+      height: calc(100% + 6px)
+      background: $gradient-primary-secondary
+      background-size: 150% 100%
+      background-position: 0% 50%
+      transition: all 250ms ease
+    &:hover
+      color: $primary-purple-shade-2
+      &:after
+        background-position: 100% 50%
+      &:before
+        opacity: 0.96
+  &.inverse
+    background-color: transparent
+    border: $white $border-width-base solid
+    color: $white
+    &:hover
+      background-color: rgba($white, 0.08)
+  &.primary
+    background-color: $primary-purple
+    color: $white
+    &:hover
+      background-color: $primary-purple-shade-1
+  &.secondary
+    background-color: $secondary-blue
+    color: $white
+    &:hover
+      background-color: $secondary-blue-shade-1
+  &:disabled
+    opacity: $disabled-opacity
+    cursor: not-allowed
+  &.fill
+    width: 100%
+  &.spinner-left
+    padding-left: $spacing-base*5
+  &.icon-left
+    padding-left: $spacing-base*6
+  .spinner
+    width: $default-font-size
+    height: $default-font-size
+    display: inline-block
+    position: absolute
+    left: 14px
+    top: 14px
+    animation-name: spin
+    animation-duration: 2000ms
+    animation-iteration-count: infinite
+    animation-timing-function: linear
+  .icon
+    width: $default-font-size
+    height: $default-font-size
+    display: inline-block
+    position: absolute
+    left: 18px
+    top: 14px
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+
+  to
+    transform: rotate(360deg)
+
+#app
+  &.darkMode
+    button, a.button
+      &.default
+        background-color: $dark-gray-darker
+        color: $white
+        border: $white $border-width-base solid
+        &:hover
+          background-color: lighten($dark-gray-darker, 10%)
+
+      &.primary
+        color: $white
+        &:hover
+          color: $white
+
+      &.secondary
+        background-color: $secondary-blue-dark-mode
+        color: $white
+        &:hover
+          background-color: $secondary-blue-dark-hover
+
+      &.gradient
+        border: $border-width-base $white solid
+        background-color: transparent
+        color: $white
+        &:before, &:after
+          display: none
+        &:hover
+          background-color: rgba(255, 255, 255, 0.2)

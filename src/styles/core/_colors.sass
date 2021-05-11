@@ -1,0 +1,112 @@
+$primary-purple:            #63167E
+$primary-purple-accent:     #A004D7
+$primary-purple-accent-lighter:   lighten(#A004D7, 20%)
+$primary-purple-shade-1:    #7F0DA8
+$primary-purple-shade-2:    #570F71
+
+$link-color:                $primary-purple
+$link-color-hover:          #7f6489
+$link-color-dark:           lighten($primary-purple-shade-2, 52%)
+$link-color-dark-hover:     lighten($primary-purple-shade-2, 30%)
+
+$secondary-blue:            #002D72
+$secondary-blue-accent:     #0051ED
+$secondary-blue-shade-1:    #184EB8
+$secondary-blue-shade-2:    #0B2557
+$secondary-blue-dark-mode:  lighten($secondary-blue, 20%)
+$secondary-blue-dark-hover: lighten($secondary-blue-dark-mode, 10%)
+
+$tertiary-teal:             #1DEDF0
+$tertiary-teal-accent:      #CAFEFF
+$tertiary-teal-shade-1:     #62FDFF
+$tertiary-teal-shade-2:     #25DFE1
+
+$dark-gray:                 #3B4860
+$dark-gray-lighter:         lighten($dark-gray, 10%)
+$dark-gray-lightest:        lighten($dark-gray, 20%)
+$dark-gray-darker:          darken($dark-gray, 10%)
+$dark-gray-darkest:         darken($dark-gray, 20%)
+$dark-gray-min-wcag:        #8595b4 //3.02 contrast ration on white - passes AA non-text
+$dark-gray-min-wcag-dark:   #b9c2d4 //9.85 contrast ration on $dark-gray-darkest - passes everything but looks best when replacing $dark-gray-min-wcag in dark mode
+
+$background-light:          #f1f1f1
+$background-lighter:        #f4f4f4
+$background-dark:           $dark-gray-darkest
+$background-dark-lighter:   $dark-gray-darker
+$white:                     #ffffff
+$black:                     #000000
+
+$white-darker:              #f1f1f1
+$white-darkest:             #e0e0e0
+
+$success:                   #00a12b //3.03 contrast ratio on white illustration - passes AA non-text
+$success-darker:            #00711e //5.50 contrast ratio on white illustration - passes AA text and non-text
+$success-lighter:           #2bcf57 //1.83 contrast ratio on white illustration - fails AA non-text - DO NOT USE ALONE
+$success-outline:           #239943 //3.06 contrast ratio on white illustration - passes AA non-text
+
+$error:                     #a10000 //7.39 contrast ratio on white illustration - passes AAA text and non-text
+$error-darker:              #7c0000 //10.01 contrast ratio on white illustration - passes AAA text and non-text
+$error-lighter:             #c83a3a //3.48 contrast ratio on white illustration - passes AA non-text
+$error-outline:             #a32e2e //6.22 contrast ratio on white illustration - passes AA text and non-text
+$error-dark-mode:           #ff9999 //4.50 contrast ratio on $background-dark
+
+$info:                      $secondary-blue-accent //7.39 contrast ratio on white illustration - passes AAA text and non-text
+$info-darker:               darken($secondary-blue-accent, 20%) //10.01 contrast ratio on white illustration - passes AAA text and non-text
+$info-lighter:              lighten($secondary-blue-accent, 20%) //3.48 contrast ratio on white illustration - passes AA non-text
+$info-outline:              lighten($secondary-blue-accent, 10%) //6.22 contrast ratio on white illustration - passes AA text and non-text
+
+$gradient-primary:           radial-gradient(circle at bottom right, $primary-purple-shade-2 0%, $primary-purple 35%, $primary-purple-shade-1 100%)
+$gradient-primary-dark:      radial-gradient(circle at bottom right, darken($primary-purple-shade-2, 10%) 0%, darken($primary-purple, 10%) 35%, darken($primary-purple-shade-1, 10%) 100%)
+$gradient-primary-secondary: linear-gradient(148deg, rgba(0,45,114,1) 0%, rgba(87,15,113,1) 48%, rgba(99,22,126,1) 59%, rgba(127,13,168,1) 100%)
+$gradient-primary-secondary-alt: linear-gradient(172deg, rgba(0,45,114,1) 0%, rgba(87,15,113,1) 48%, rgba(99,22,126,1) 59%, rgba(127,13,168,1) 100%)
+$gradient-secondary:         radial-gradient(circle at bottom right, $secondary-blue-shade-2 0%, $secondary-blue 35%, $secondary-blue-shade-1 100%)
+$gradient-error:             radial-gradient(circle at bottom right, $error-darker 0%, $error 55%, $error-lighter 100%)
+$gradient-error-dark:        radial-gradient(circle at bottom right, darken($error-darker, 5%) 0%, darken($error, 5%) 55%, darken($error-lighter, 5%) 100%)
+$gradient-success:           radial-gradient(circle at bottom right, $success-darker 0%, $success 55%, $success-lighter 100%)
+$gradient-success-dark:      radial-gradient(circle at bottom right, $success-darker 0%, $success 55%, $success-lighter 100%)
+$gradient-info:              radial-gradient(circle at bottom right, $info-darker 0%, $info 55%, $info-lighter 100%)
+$gradient-info-dark:         radial-gradient(circle at bottom right, $info-darker 0%, $info 55%, $info-lighter 100%)
+
+$light-gray:                 darken($white-darkest, 5%)
+$disabled-opacity:           .6
+$disabled-gray:              rgba($dark-gray, $disabled-opacity)
+
+$default-fade-opacity:       .78
+
+$shadow-100:                 0px 8px 16px rgba(0, 0, 0, 0.24)
+$shadow-200:                 10px 22px 64px rgba(0, 0, 0, 0.32)
+$shadow-400:                 20px 34px 90px rgba(0, 0, 0, 0.45)
+
+$shadow-neumorphic-light:     -6px -6px 20px 0 rgba(255, 255, 255, 1), 6px 6px 16px 0 rgba(217, 210, 200, 0.51)
+$shadow-neumorphic-light-img: -8px -8px 22px 0 rgba(255, 255, 255, 1), 6px 6px 16px 0 rgba(217, 210, 200, 1)
+$shadow-neumorphic-dark:      -6px -6px 20px 0 rgba(255, 255, 255, 0.08), 6px 6px 16px 0 rgba(0, 0, 0, 0.4)
+$shadow-neumorphic-dark-img:  -6px -6px 10px 0 rgba(255, 255, 255, 0.08), 6px 6px 16px 0 rgba(0, 0, 0, 0.6)
+$shadow-neumorphic-darker:    -6px -6px 20px 0 rgba(255, 255, 255, 0.06), 6px 6px 16px 0 rgba(0, 0, 0, 0.6)
+$shadow-neumorphic-primary:   -6px -6px 10px 0 rgba(255, 255, 255, 1), 2px 2px 16px 0 rgba($primary-purple-shade-2, 0.51)
+$shadow-neumorphic-secondary: -6px -6px 10px 0 rgba(255, 255, 255, 1), 2px 2px 16px 0 rgba($secondary-blue-shade-2, 0.51)
+$shadow-neumorphic-error:     -6px -6px 10px 0 rgba(255, 255, 255, 1), 2px 2px 16px 0 rgba($error-darker, 0.51)
+$shadow-neumorphic-success:   -6px -6px 10px 0 rgba(255, 255, 255, 1), 2px 2px 16px 0 rgba($success-darker, 0.51)
+$shadow-neumorphic-info:      -6px -6px 10px 0 rgba(255, 255, 255, 1), 2px 2px 16px 0 rgba($info-darker, 0.51)
+$shadow-accessibility-outline: 0 0 0 $border-width-base*2 $secondary-blue-accent
+$shadow-accessibility-outline-dark: 0 0 0 $border-width-base*2 $white
+
+$file-type-pdf:             #f70000 //4.24 contrast ratio on white illustration - passes AA non-text
+
+$file-type-vector:          #d67200 //3.01 contrast ratio on white illustration - passes AA non-text
+
+$file-type-sketch:          #cd8500 //3.03 contrast ratio on while illustration - passes AA non-text
+
+$file-type-image:           #0299e3 //3.15 contrast ratio on white illustration - passes AA non-text
+
+$file-type-doc:             #003aad //9.51 contrast ratio on white illustration - passes AAA & AA text, non-text
+
+$file-type-sheet:           #006e05 //6.50 contrast ratio on white illustration - passes AA text, non-text
+
+$file-type-presentation:    #b32d00 //6.38 contrast ratio on white illustration - passes AA text, non-text
+
+$file-type-media:           #00a881 //3.04 contrast ratio on white illustration - passes AA non-text
+
+$file-type-code:            #8100b8 //8.00 contrast ratio on white illustration - passes AAA & AA text, non-text
+
+$file-type-zip:             #689dab //3.00 contrast ratio on white illustration - passes AA non-text
+

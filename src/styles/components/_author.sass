@@ -1,0 +1,73 @@
+@import 'common'
+.page-content
+  .authors
+    display: flex
+    flex-wrap: wrap
+.author
+  margin-top: $spacing-v-default
+  display: flex
+  flex-direction: column
+  margin-right: $spacing-h-default*3
+  > div
+    display: flex
+    flex-direction: row
+    align-items: center
+    .contact-info
+      display: flex
+      flex-direction: column
+      span
+        display: flex
+        align-items: center
+        margin-bottom: $spacing-v-default/2
+        margin-right: $spacing-h-default
+        &.email
+          padding-bottom: 6px
+        svg
+          width: $default-font-size
+          height: $default-font-size
+          margin-top: 2px
+          margin-right: $spacing-h-default/2
+    .profile-name
+      width: 100%
+      &.press-contact
+        margin-top: $spacing-v-default/2
+      h5.name
+        margin-top: 0
+        margin-bottom: $spacing-base/2
+        font-weight: 800
+      p
+        margin: 0
+        line-height: unset
+        &.title
+          @extend p.small
+          margin-bottom: $spacing-base
+    img.thumbnail
+      width: 100px
+      height: 100px
+      border-radius: 50%
+      margin-right: $spacing-h-default*2
+      border: $border-width-base/2 solid $white
+      box-shadow: $shadow-neumorphic-light-img
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+        width: 100px + $spacing-h-default*3.5
+  &.vertical
+    margin-right: 0
+    min-width: 240px
+    text-align: center
+    > div
+      flex-direction: column
+      justify-content: center
+      img.thumbnail
+        margin-right: 0
+
+#app
+  &.darkMode
+    .author
+      img.thumbnail
+        box-shadow: $shadow-neumorphic-dark-img
+
+/* small tablet */
+@media all and (max-width: $guide-content-width * 1.06)
+  .author
+    margin-right: 0
+    width: 100%

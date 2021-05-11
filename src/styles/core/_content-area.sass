@@ -1,0 +1,137 @@
+.guide-container
+  position: relative
+  z-index: 10
+  background-color: $background-light
+  border-top-left-radius: $border-radius-base*2
+  border-top-right-radius: $border-radius-base*2
+  &:not(.page-container)
+    margin-top: -$border-radius-base*2
+    .page-content
+      margin-top: $spacing-v-default*4
+
+.content-header
+  grid-column-start: 2
+  grid-column-end: 3
+  h1
+    margin: 48px 0 12px
+.left-aside-page
+  section.page-nav, section.sidebar
+    aside
+      padding: $spacing-v-default $spacing-h-default
+      background-color: $background-lighter
+      border-radius: $border-radius-base
+      box-shadow: $shadow-neumorphic-light
+      box-sizing: border-box
+      max-width: 320px
+      width: 100%
+      h4
+        margin-bottom: $spacing-v-default/2
+        &:first-of-type
+          margin-top: 0
+      ul.category-list
+        padding-left: 0
+        li
+          list-style-type: none
+          padding: $spacing-v-default/2 $spacing-h-default*1.5
+          line-height: $default-font-size
+          margin-bottom: 0
+          a
+            text-decoration: none
+            color: $primary-purple
+          &.active
+            background-color: $secondary-blue-shade-1
+            border-radius: $border-radius-base*4
+            a
+              color: $white
+  section.sidebar
+    aside
+      h4
+        margin-left: 12px
+      ul
+        padding-left: 0
+        li
+          list-style-type: none
+          padding: $spacing-v-default/2 $spacing-h-default*1.5 $spacing-v-default/2 $spacing-base*1.5
+          line-height: $default-font-size
+          margin-bottom: 0
+  section.page-content
+    margin-left: $spacing-h-default*4
+    margin-top: 0
+    padding-top: 0
+    div
+      padding-top: 28px
+      &[class*="-section-container"]:last-of-type
+        min-height: 60vh
+      article:not(.no-style)
+        margin-bottom: $spacing-v-default*2
+        padding: 0 $spacing-h-default*2
+        position: relative
+        &:before
+          width: $border-width-base*4
+          height: 100%
+          border-radius: $border-width-base*2
+          background-color: rgba($dark-gray-lighter, 0.4)
+          content: " "
+          position: absolute
+          left: 0
+          top: 0
+          bottom: 0
+      h2
+        margin-top: 0
+
+.two-col-page
+  @include columns(2, 8%, 100%, div)
+
+#app
+  &.darkMode
+    .guide-container
+      background-color: $background-dark
+      color: $white-darkest
+    .page-content
+      a
+        color: $link-color-dark
+        &:hover
+          color: $link-color-dark-hover
+    .left-aside-page
+      color: $white
+      section.page-nav, section.sidebar
+        aside
+          background-color: $background-dark-lighter
+          box-shadow: $shadow-neumorphic-dark
+          li:not(.active)
+            a
+              color: $link-color-dark
+              &:hover
+                color: $link-color-dark-hover
+
+
+// Small desktop
+@media all and (max-width: $guide-content-width * 1.66)
+  .left-aside-page
+    section.page-nav
+      aside
+        position: absolute
+        left: 0
+        border-top-left-radius: 0
+        border-bottom-left-radius: 0
+    section.page-content
+      margin-left: 0
+
+// Extra Small Desktop
+@media all and (max-width: $guide-content-width * 1.53)
+  .left-aside-content-container
+    @include columns(1, 0%, 100%, 'section.page-content')
+  .left-aside-page
+    @include container(10%, 80%)
+    section.page-nav
+      display: none
+    section.page-content
+      grid-column-start: 1
+      max-width: 100%
+  .two-col-page
+    @include columns(1, 0%, 100%, div)
+
+// Small Tablet
+@media all and (max-width: $guide-content-width * 1.06)
+  .left-aside-page
+    @include container(5%, 90%)

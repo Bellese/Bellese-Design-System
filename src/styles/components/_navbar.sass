@@ -1,0 +1,390 @@
+@import 'common'
+
+.page-header
+  position: relative
+  background-color: $white
+  z-index: 100
+  a
+    .logo
+      height: 60px
+      @supports( grid-area: auto )
+        margin-top: 36px
+      position: absolute
+      &.color
+        visibility: visible
+        opacity: 100
+      &.reversed
+        visibility: hidden
+        opacity: 0
+    .site-name
+      padding-left: 72px
+      margin-top: 46px
+      position: absolute
+      height: 50px
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+        margin-top: 18px
+      img.wordmark
+        height: 20px
+        width: auto
+        padding-left: 1px
+        &.reversed
+          display: none
+      span
+        display: block
+        color: $dark-gray
+        font-size: $small-font-size
+        font-weight: 600
+      &:hover
+        img
+          opacity: 0.8
+        span
+          color: $dark-gray-lighter
+  nav
+    div.mobile-nav
+      display: none
+      button
+        z-index: 150
+        display: block
+        position: absolute
+        right: $spacing-h-default*2
+        margin-top: 18px
+        &:focus
+          outline: $secondary-blue-accent $border-width-base*2 solid
+          outline-offset: $border-width-base*4
+        .close
+          display: none
+          outline: none
+        .menu
+          display: inline-block
+          outline: none
+        &.nav-active
+          position: fixed
+          .close
+            display: inline-block
+          .menu
+            display: none
+      ul
+        height: 0
+        border-bottom-left-radius: $border-radius-base*2
+        border-bottom-right-radius: $border-radius-base*2
+        box-shadow: $shadow-200
+        overflow: scroll
+        margin: 0
+        list-style: none
+        width: 100vw
+        box-sizing: border-box
+        padding: 20px 5% 10px 5%
+        position: fixed
+        top: calc( -90% - 400px)
+        left: 0
+        z-index: 100
+        background-color: $white
+        li
+          font-size: $h4-font-size
+          line-height: $h4-line-height
+          border-bottom: $dark-gray-min-wcag-dark $border-width-base solid
+          margin: 0
+          padding: $spacing-h-default 0
+          .logo
+            height: 50px
+            margin-bottom: $spacing-h-default*6
+            margin-top: 0
+            &.reversed
+              display: none
+              opacity: 0
+            &.color
+              display: block
+              opacity: 100
+          &.close
+            position: absolute
+            bottom: $spacing-h-default
+            border-bottom: none
+        a
+          text-decoration: none
+          &:first-of-type
+            li
+              border-bottom: none
+          &:last-of-type
+            li
+              border-bottom: none
+    ul.nav
+      text-align: right
+      font-size: $lead-font-size
+      margin-top: 48px
+      @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+        // just over here hating IE
+        padding-top: 18px
+      li
+        display: inline-block
+        margin-left: $spacing-h-default
+        a
+          position: relative
+          color: $dark-gray-darker
+          text-decoration: none
+          padding-bottom: $spacing-v-default/4
+          box-sizing: content-box
+          &:after
+            position: absolute
+            @supports( grid-area: auto )
+              transition: all 250ms ease
+            bottom: -$spacing-base/2
+            height: $border-width-base*2
+            width: $spacing-base/2
+            border-radius: 0
+            content: ' '
+            left: 50%
+          &.router-link-exact-active
+            &:after
+              background-color: rgba($primary-purple, .6)
+              height: $border-width-base*2
+              width: 100%
+              left: 0
+              right: 0
+          &.router-link-active:not(.router-link-exact-active):not(:hover)
+            &:after
+              background-color: rgba($primary-purple, .6)
+              border-radius: $spacing-base/4
+              left: 50%
+          &:hover
+            &:after
+              background-color: $primary-purple
+              height: $border-width-base*2
+              width: 100%
+              left: 0
+              right: 0
+      &.wide
+        margin-top: 42px
+        li
+          margin-top: 8px
+
+.feed-child-header
+  &.standard, &.wide
+    background: $gradient-primary, $primary-purple
+    margin-bottom: 0
+    nav
+      a
+        color: $white
+
+#app
+  &.darkMode
+    .page-header
+      &:not(.invert)
+        background-color: $background-dark
+      &:after
+        content: " "
+        position: absolute
+        bottom: 0
+        height: $border-width-base*2
+        width: 100%
+        background: $gradient-primary-secondary
+      .site-name
+        img.wordmark
+          &.reversed
+            display: unset
+          &.color
+            display: none
+        span
+          color: $white
+      .logo
+        &.color
+          visibility: hidden
+          opacity: 0
+        &.reversed
+          visibility: visible
+          opacity: 100
+      nav
+        div.mobile-nav
+          ul
+            background-color: $background-dark-lighter
+            a
+              color: $white
+            li
+              .logo
+                &.color
+                  display: none
+                  opacity: 0
+                &.reversed
+                  display: block
+                  opacity: 100
+              &:before
+                background-color: $link-color-dark
+        ul.nav
+          li
+            a
+              color: $white
+              &.router-link-exact-active
+                &:after
+                  background-color: rgba($link-color-dark, .4)
+              &.router-link-active:not(.router-link-exact-active):not(:hover)
+                &:after
+                  background-color: rgba($link-color-dark, .4)
+              &:hover
+                &:after
+                  background-color: rgba($link-color-dark, .6)
+    .feed-child-header
+      &.standard, &.wide
+        opacity: $default-fade-opacity
+        background: $gradient-primary-dark, $primary-purple-shade-2
+
+.page-header.invert
+  background-color: transparent
+  .header-content
+    &:after
+      z-index: -1
+      position: absolute
+      top: -35px
+      left: 0
+      right: 0
+      padding-bottom: $spacing-v-default/2
+      width: 100%
+      height: 100%
+      content: ' '
+      background: linear-gradient(271.79deg, #63167E 3.04%, #002D72 67.15%)
+      opacity: 1
+      filter: blur(88px)
+    &:before
+      z-index: -2
+      position: absolute
+      top: -35px
+      left: 0
+      right: 0
+      padding-bottom: $spacing-v-default/2
+      width: 100%
+      height: 100%
+      content: ' '
+      background: $black
+      opacity: 1
+      filter: blur(118px)
+    .site-name
+      img.wordmark
+        &.reversed
+          display: unset
+        &.color
+          display: none
+      span
+        color: $white
+    .logo
+      &.color
+        visibility: hidden
+        opacity: 0
+      &.reversed
+        visibility: visible
+        opacity: 100
+    nav
+      ul.nav
+        li
+          a
+            color: $white
+            &.router-link-exact-active
+              &:after
+                background-color: rgba($white, .6)
+            &.router-link-active:not(.router-link-exact-active):not(:hover)
+              &:after
+                background-color: rgba($white, .6)
+            &:hover
+              &:after
+                background-color: rgba($white, 1)
+
+
+// Small Desktop
+@media all and (max-width: $guide-content-width * 1.66)
+  .page-header
+    nav
+      ul.nav
+        font-size: $med-lead-font-size
+        margin-top: 52px
+
+// Large Tablet
+@media all and (max-width: $guide-content-width * 1.26)
+  .page-header
+    a
+      .logo
+        height: 50px
+      .site-name
+        padding-left: 52px
+        margin-top: 48px
+        img.wordmark
+          height: 14px
+    nav
+      ul.nav, ul.nav.wide
+        margin-top: 0
+        li
+          display: none
+      div.mobile-nav
+        float: right
+        display: block
+        ul
+          overflow: hidden
+          -webkit-transition: height 500ms ease, top 500ms ease
+          -moz-transition: height 500ms ease, top 500ms ease
+          -ms-transition: height 500ms ease, top 500ms ease
+          transition: height 500ms ease, top 500ms ease
+          a
+            li
+              transition: opacity 500ms ease
+              position: relative
+              opacity: 0
+            &.router-link-exact-active:not(.mobile-home-link)
+              li
+                padding-left: $spacing-h-default
+                &:before
+                  display: block
+                  position: absolute
+                  background-color: $primary-purple
+                  width: $border-width-base*2
+                  border-radius: $border-width-base
+                  height: 50%
+                  left: 0
+                  top: 25%
+                  content: " "
+            &.router-link-active:not(.router-link-exact-active):not(.mobile-home-link)
+              li
+                padding-left: $spacing-h-default
+                &:before
+                  display: block
+                  position: absolute
+                  width: $border-width-base*2
+                  height: $border-width-base*2
+                  background-color: rgba($primary-purple, .8)
+                  border-radius: $spacing-base/4
+                  left: 0
+                  top: calc(50% - #{$border-width-base})
+                  content: " "
+          &.active
+            height: auto
+            top: 0
+            a
+              li
+                opacity: 1
+            &.active
+              a
+                li
+                  display: block
+          @supports (--css: variables)
+            &.active
+              a
+                li
+                  animation: animateIn
+                  animation-duration: 250ms
+                  animation-delay: calc(var(--animation-order) * 100ms)
+                  animation-fill-mode: both
+                  animation-timing-function: ease
+        .mobile-nav-cover
+          display: block
+          position: fixed
+          bottom: 0
+          left: 0
+          right: 0
+          top: 0
+          content: " "
+          background-color: rgba(0, 0, 0, 0.6)
+          z-index: -1
+    .header-content
+      height: unset
+
+@keyframes animateIn
+  0%
+    opacity: 0
+    transform: scale(0.6) translateY(-8px)
+  100%
+    opacity: 1

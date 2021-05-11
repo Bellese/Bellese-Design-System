@@ -1,0 +1,285 @@
+@import 'common'
+#attachments
+  padding: $spacing-h-default $spacing-v-default
+  border: $border-width-base/2 solid rgba(255, 255, 255, 0.20)
+  border-radius: $border-radius-base
+  background-color: $background-lighter
+  box-shadow: $shadow-neumorphic-light
+  margin: $spacing-v-default*2 0 $spacing-v-default*3 0
+  transition: background-color 500ms ease, box-shadow 500ms ease, border-color 500ms ease
+  h3
+    color: $dark-gray
+    margin-top: $spacing-v-default/2
+    margin-bottom: $spacing-v-default
+  ul
+    padding: 0
+    li
+      margin: $spacing-h-default 0 $spacing-h-default*1.5 0
+      list-style: none
+      border-radius: 30px
+      &:last-child
+        margin-bottom: $spacing-h-default
+      a
+        display: table
+        height: 60px
+        width: 100%
+        text-decoration: none
+        text-underline: none
+        box-sizing: border-box
+        background-color: $white-darkest
+        border-radius: 30px
+        position: relative
+        span.icon
+          display: table-cell
+          height: 100%
+          width: 60px
+          position: relative
+          border-radius: 30px 0 0 30px
+          z-index: 5
+          svg
+            position: absolute
+            height: 30px
+            width: 100%
+            margin-top: 15px
+            margin-left: 5px
+            &:focus, &:active
+              outline: none
+            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+              top: 0
+          &:after
+            position: absolute
+            z-index: 4
+            content: " "
+            height: 100%
+            width: 100%
+            left: 90%
+          &.pdf
+            background-color: $file-type-pdf
+            &:after
+              background-color: $file-type-pdf
+          &.ai, &.eps, &.svg
+            background-color: $file-type-vector
+            &:after
+              background-color: $file-type-vector
+          &.sketch
+            background-color: $file-type-sketch
+            &:after
+              background-color: $file-type-sketch
+          &.png, &.jpg, &.jpeg, &.gif, &.psd, &.tiff, &.tif, &.webp
+            background-color: $file-type-image
+            &:after
+              background-color: $file-type-image
+          &.doc, &.docx
+            background-color: $file-type-doc
+            &:after
+              background-color: $file-type-doc
+          &.xls, &.xlsx, &.csv
+            background-color: $file-type-sheet
+            &:after
+              background-color: $file-type-sheet
+          &.ppt, &.pptx
+            background-color: $file-type-presentation
+            &:after
+              background-color: $file-type-presentation
+          &.media
+            background-color: $file-type-media
+            &:after
+              background-color: $file-type-media
+          &.code
+            background-color: $file-type-code
+            &:after
+              background-color: $file-type-code
+          &.zip
+            background-color: $file-type-zip
+            &:after
+              background-color: $file-type-zip
+        span.label
+          color: $secondary-blue
+          display: table-cell
+          position: relative
+          padding-left: $spacing-v-default
+          padding-right: $spacing-v-default
+          box-sizing: border-box
+          background-color: $white-darkest
+          border-radius: 30px 0 0 30px
+          vertical-align: middle
+          white-space: nowrap
+          overflow: hidden
+          text-overflow: ellipsis
+          max-width: 400px
+          font-size: 18px
+          height: 100%
+          z-index: 6
+        span.button.download
+          display: table-cell
+          position: relative
+          width: 120px
+          border-radius: 30px
+          background-color: $secondary-blue
+          svg
+            max-height: 30px
+            max-width: 30px
+            display: block
+            margin: 15px auto 0 auto
+            color: $white-darker
+            path
+              fill: $white-darker
+            &:focus, &:active
+              outline: none
+        &:hover
+          background-color: $light-gray
+          span.icon
+            &.pdf
+              background-color: darken($file-type-pdf, 5%)
+              &:after
+                background-color: darken($file-type-pdf, 5%)
+            &.ai, &.eps, &.svg
+              background-color: darken($file-type-vector, 5%)
+              &:after
+                background-color: darken($file-type-vector, 5%)
+            &.sketch
+              background-color: darken($file-type-sketch, 5%)
+              &:after
+                background-color: darken($file-type-sketch, 5%)
+            &.png, &.jpg, &.jpeg, &.gif, &.psd, &.tiff, &.tif, &.webp
+              background-color: darken($file-type-image, 5%)
+              &:after
+                background-color: darken($file-type-image, 5%)
+            &.doc, &.docx
+              background-color: darken($file-type-doc, 5%)
+              &:after
+                background-color: darken($file-type-doc, 5%)
+            &.xls, &.xlsx, &.csv
+              background-color: darken($file-type-sheet, 5%)
+              &:after
+                background-color: darken($file-type-sheet, 5%)
+            &.ppt, &.pptx
+              background-color: darken($file-type-presentation, 5%)
+              &:after
+                background-color: darken($file-type-presentation, 5%)
+            &.media
+              background-color: darken($file-type-media, 5%)
+              &:after
+                background-color: darken($file-type-media, 5%)
+            &.code
+              background-color: darken($file-type-code, 5%)
+              &:after
+                background-color: darken($file-type-code, 5%)
+            &.zip
+              background-color: darken($file-type-zip, 5%)
+              &:after
+                background-color: darken($file-type-zip, 5%)
+          span.label
+            background-color: $light-gray
+          span.button.download
+            background-color: $secondary-blue-shade-2
+            svg
+              color: $white-darker
+              path
+                fill: $white-darker
+
+#app
+  &.darkMode
+    #attachments
+      background-color: $background-dark
+      border-color: rgba($background-dark, 0.20)
+      box-shadow: $shadow-neumorphic-darker
+      h3
+        color: $white-darkest
+      ul
+        li
+          a
+            background-color: $dark-gray-darker
+            span.icon
+              &.pdf
+                background-color: darken($file-type-pdf, 5%)
+                &:after
+                  background-color: darken($file-type-pdf, 5%)
+              &.ai, &.eps, &.svg
+                background-color: darken($file-type-vector, 5%)
+                &:after
+                  background-color: darken($file-type-vector, 5%)
+              &.sketch
+                background-color: darken($file-type-sketch, 5%)
+                &:after
+                  background-color: darken($file-type-sketch, 5%)
+              &.png, &.jpg, &.jpeg, &.gif, &.psd, &.tiff, &.tif, &.webp
+                background-color: darken($file-type-image, 5%)
+                &:after
+                  background-color: darken($file-type-image, 5%)
+              &.doc, &.docx
+                background-color: darken($file-type-doc, 5%)
+                &:after
+                  background-color: darken($file-type-doc, 5%)
+              &.xls, &.xlsx, &.csv
+                background-color: darken($file-type-sheet, 5%)
+                &:after
+                  background-color: darken($file-type-sheet, 5%)
+              &.ppt, &.pptx
+                background-color: darken($file-type-presentation, 5%)
+                &:after
+                  background-color: darken($file-type-presentation, 5%)
+              &.media
+                background-color: darken($file-type-media, 5%)
+                &:after
+                  background-color: darken($file-type-media, 5%)
+              &.code
+                background-color: darken($file-type-code, 5%)
+                &:after
+                  background-color: darken($file-type-code, 5%)
+              &.zip
+                background-color: darken($file-type-zip, 5%)
+                &:after
+                  background-color: darken($file-type-zip, 5%)
+            span.label
+              background-color: $dark-gray-darker
+              color: $white-darkest
+            span.button
+              background-color: $secondary-blue-dark-mode
+            &:hover
+              background-color: lighten($dark-gray-darker, 5%)
+              span.label
+                background-color: lighten($dark-gray-darker, 5%)
+              span.button
+                background-color: lighten($secondary-blue-dark-mode, 5%)
+              span.icon
+                &.pdf
+                  background-color: lighten($file-type-pdf, 5%)
+                  &:after
+                    background-color: lighten($file-type-pdf, 5%)
+                &.ai, &.eps, &.svg
+                  background-color: lighten($file-type-vector, 5%)
+                  &:after
+                    background-color: lighten($file-type-vector, 5%)
+                &.sketch
+                  background-color: lighten($file-type-sketch, 5%)
+                  &:after
+                    background-color: lighten($file-type-sketch, 5%)
+                &.png, &.jpg, &.jpeg, &.gif, &.psd, &.tiff, &.tif, &.webp
+                  background-color: lighten($file-type-image, 5%)
+                  &:after
+                    background-color: lighten($file-type-image, 5%)
+                &.doc, &.docx
+                  background-color: lighten($file-type-doc, 5%)
+                  &:after
+                    background-color: lighten($file-type-doc, 5%)
+                &.xls, &.xlsx, &.csv
+                  background-color: lighten($file-type-sheet, 5%)
+                  &:after
+                    background-color: lighten($file-type-sheet, 5%)
+                &.ppt, &.pptx
+                  background-color: lighten($file-type-presentation, 5%)
+                  &:after
+                    background-color: lighten($file-type-presentation, 5%)
+                &.media
+                  background-color: lighten($file-type-media, 5%)
+                  &:after
+                    background-color: lighten($file-type-media, 5%)
+                &.code
+                  background-color: lighten($file-type-code, 5%)
+                  &:after
+                    background-color: lighten($file-type-code, 5%)
+                &.zip
+                  background-color: lighten($file-type-zip, 5%)
+                  &:after
+                    background-color: lighten($file-type-zip, 5%)

@@ -1,0 +1,487 @@
+$guide-content-width: 680px
+$page-content-width: 80%
+$page-content-margin: (100% - $page-content-width)/2
+$page-header-width: $page-content-width
+$page-header-margin: $page-content-margin
+$guide-header-width: 60%
+$footer-width: $page-content-width
+$footer-margin: $page-content-margin
+
+$spacing-base: 8px
+$spacing-h-default: $spacing-base * 2 //16px
+$spacing-v-default: $spacing-base * 3 //24px
+
+$border-radius-base: 16px
+$border-width-base: 2px
+
+$column-gap-base: 2%
+
+@mixin columns( $columns, $gap: 2%, $wrapper_width: null, $grid_item_element: div )
+
+  @if( $wrapper_width == null )
+    $wrapper_width: $page-content-width
+
+  #{$grid_item_element}
+    float: left
+    box-sizing: border-box
+    margin-left: $gap
+    width: ( ($wrapper_width - ($gap * ( $columns - 1 ))) / $columns )
+
+    &:nth-of-type(#{$columns}n+1)
+      clear: both
+      margin-left: 0
+
+  @supports( grid-area: auto )
+    -ms-display: grid
+    -ms-grid-column-gap: $gap
+    -ms-grid-template-columns: repeat( $columns, 1fr )
+    display: grid
+    grid-column-gap: $gap
+    grid-template-columns: repeat( $columns, 1fr )
+
+    #{$grid_item_element}
+      margin-left: 0
+      width: 100%
+
+
+@mixin twoColRightNarrow( $margin: 10%, $grid_item_element: div )
+
+  #{$grid_item_element}
+    &:nth-of-type(1)
+      float: left
+      width: (68% - $margin)
+    &:nth-of-type(2)
+      float: right
+      margin-left: $margin
+      width: 32%
+
+  @supports( grid-area: auto )
+    -ms-display: grid
+    -ms-grid-column-gap: $margin
+    -ms-grid-template-columns: 58% (68% - $margin)
+    display: grid
+    grid-column-gap: $margin
+    grid-template-columns: (68% - $margin) 32%
+
+    #{$grid_item_element}
+      width: 100%
+      &:nth-of-type(1), &:nth-of-type(2)
+        clear: both
+        margin-left: unset
+        width: unset
+
+
+@mixin twoColLeftNarrow( $margin: 10%, $grid_item_element: div )
+
+  #{$grid_item_element}
+    &:nth-of-type(1)
+      float: left
+      margin-right: $margin
+      width: 32%
+    &:nth-of-type(2)
+      float: right
+      width: (68% - $margin)
+
+  @supports( grid-area: auto )
+    -ms-display: grid
+    -ms-grid-column-gap: $margin
+    -ms-grid-template-columns: 32% (68% - $margin)
+    display: grid
+    grid-column-gap: $margin
+    grid-template-columns: 32% (68% - $margin)
+
+    #{$grid_item_element}
+      width: 100%
+      &:nth-of-type(1), &:nth-of-type(2)
+        clear: both
+        margin-left: unset
+        width: unset
+
+@mixin container($margin, $width: 100%, $padding-top: 0, $padding-bottom: 0)
+  float: left
+  padding: $padding-top $margin $padding-bottom
+  width: $width
+
+  @supports( grid-area: auto )
+    padding: $padding-top 0 $padding-bottom
+    width: unset
+    float: unset
+    -ms-display: grid
+    -ms-grid-column-gap: 0
+    -ms-grid-template-columns: auto $width auto
+    display: grid
+    grid-column-gap: 0
+    grid-template-columns: auto $width auto
+
+html, body
+  margin: 0
+  padding: 0
+  height: calc(100% + #{$spacing-h-default})
+  min-height: calc(100% + #{$spacing-h-default})
+
+#app
+  width: 100%
+  min-height: calc(100% + #{$spacing-h-default})
+
+.hero
+  box-sizing: border-box
+  padding: 0 0 $spacing-v-default*2 0
+  @include container($page-content-margin, $page-content-width)
+  width: 100%
+  max-width: 100%
+  position: relative
+  max-height: 500px
+  overflow: hidden
+  &.narrow
+    @extend .guide-container
+    div
+      grid-column-start: 2
+      grid-column-end: 3
+      -ms-grid-column-start: 2
+      -ms-grid-column-end: 3
+  &.full
+    grid-template-columns: 100%
+    grid-column-gap: 0
+    -ms-grid-template-columns: 100%
+    -ms-grid-column-gap: 0
+    div
+      grid-column-start: 1
+      grid-column-end: 2
+      -ms-grid-column-start: 1
+      -ms-grid-column-end: 2
+  &.feature
+    padding-top: 0
+    grid-template-columns: auto 75% auto
+    grid-column-gap: 0
+    -ms-grid-template-columns: auto 75% auto
+    -ms-grid-column-gap: 0
+    div
+      grid-column-start: 2
+      grid-column-end: 3
+      -ms-grid-column-start: 2
+      -ms-grid-column-end: 3
+
+.page-header
+  box-sizing: border-box
+  @include container($page-header-margin, $page-header-width)
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    // IE is still the worst
+    @include container($page-header-margin, 100%)
+    clear: both
+  .header-content
+    @supports( grid-area: auto )
+      grid-column-start: 2
+      grid-column-end: 3
+      -ms-grid-column-start: 2
+      -ms-grid-column-end: 3
+    min-width: 100%
+    height: 122px
+
+.page-container
+  box-sizing: border-box
+  padding: 0 0 $spacing-v-default*2 0
+  @include container($page-content-margin, $page-content-width)
+  .page-content
+    @supports( grid-area: auto )
+      grid-column-start: 2
+      grid-column-end: 3
+      -ms-grid-column-start: 2
+      -ms-grid-column-end: 3
+    max-width: 100%
+    img
+      width: 100%
+      height: auto
+    .team-member-container
+      box-sizing: border-box
+      padding: 0
+      display: grid
+      margin: ($spacing-v-default*2) 0
+      @include twoColLeftNarrow(4%, "> div")
+  .team-profiles-container
+    @extend .page-content
+    grid-column-start: 1
+    grid-column-end: 4
+    -ms-grid-column-start: 1
+    -ms-grid-column-end: 4
+    @include columns(8, 0, 100%, a)
+    a
+      display: inline-block
+
+.press-kit-container
+  overflow-x: hidden
+  padding: unset
+  width: unset
+  float: unset
+  -ms-display: grid
+  -ms-grid-column-gap: $column-gap-base/2
+  -ms-grid-template-columns: calc(#{$page-content-margin} - 1%) ($page-content-width/3)*2 ($page-content-width/4) ($page-content-width/4)
+  display: grid
+  grid-column-gap: $column-gap-base/2
+  grid-template-columns: calc(#{$page-content-margin} - 1%) ($page-content-width/3)*2 ($page-content-width/4) ($page-content-width/4)
+  .page-content
+    grid-column-start: 2
+    grid-column-end: 3
+  aside
+    div
+      width: 100%
+      height: auto
+      margin: $column-gap-base*2 0
+      padding: $column-gap-base
+      box-sizing: border-box
+      img
+        width: 100%
+        height: auto
+    &:nth-child(2)
+      div:first-child
+        margin-top: -$spacing-h-default*4
+    &:nth-child(3)
+      div:first-child
+        margin-top: -$spacing-h-default*8
+
+.end-of-page-cta
+  @include container($page-content-margin*1.25, $page-content-width/1.25)
+  .cta-content
+    grid-column-start: 2
+    grid-column-end: 3
+    -ms-grid-column-start: 2
+    -ms-grid-column-end: 3
+    @include twoColLeftNarrow(0%, "> div")
+    margin: ($spacing-v-default*2) 0
+    div:first-of-type
+      text-align: center
+    img, svg
+      width: 140px
+      height: auto
+    svg
+      outline: none
+      &:focus
+        outline: none
+    h2
+      margin-top: 0
+
+article
+  margin-bottom: $spacing-v-default*3
+
+section
+  padding-top: $spacing-v-default*2
+  padding-bottom: $spacing-v-default*2
+
+.guide-header
+  @extend .page-header
+  grid-template-columns: auto $guide-header-width auto
+  -ms-grid-template-columns: auto $guide-header-width auto
+  .header-content
+    min-width: $guide-header-width
+
+.feed-child-header
+  &.standard
+    @extend .guide-header
+    padding-top: $spacing-v-default/2
+    padding-bottom: $spacing-v-default/2
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+      width: 100%
+  &.wide
+    @extend .page-container
+    padding-top: $spacing-v-default/2
+    padding-bottom: $spacing-v-default/2
+    @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+      width: 100%
+
+  &.standard, &.wide
+    nav
+      @extend .header-content
+      height: unset
+      grid-column-start: 2
+      grid-column-end: 3
+      -ms-grid-column-start: 2
+      -ms-grid-column-end: 3
+
+.guide-container
+  @extend .page-container
+  padding: $spacing-h-default 1% 0 1%
+  grid-template-columns: auto $guide-content-width auto
+  -ms-grid-template-columns: auto $guide-content-width auto
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    width: 100%
+  .page-content
+    @extend .page-content
+    max-width: $guide-content-width
+    grid-column-start: 2
+    grid-column-end: 3
+    -ms-grid-column-start: 2
+    -ms-grid-column-end: 3
+
+.left-aside-content-container
+  box-sizing: border-box
+  padding: 0 0 $spacing-v-default*2 0
+  grid-column-start: 2
+  grid-column-end: 3
+  -ms-grid-column-start: 2
+  -ms-grid-column-end: 3
+  @include twoColLeftNarrow(0%, section)
+  section.page-content
+    max-width: $guide-content-width
+    margin-top: 100px
+
+.row
+  display: flex
+  .col
+    flex: 1 1 0px
+    position: relative
+    flex-flow: column nowrap
+    align-items: center
+    margin-top: $spacing-v-default
+    margin-right: $spacing-h-default*2
+    min-width: 0
+    &:last-of-type
+      margin-right: 0
+  &.narrow
+    .col
+      margin-top: $spacing-v-default/2
+
+footer
+  box-sizing: border-box
+  @include container(0, $footer-width)
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+    //so IE doesn't break.  smh...
+    width: 100%
+  section
+    padding: 0 $footer-margin
+    margin-top: 90px
+    grid-column-start: 2
+    grid-column-end: 3
+    -ms-grid-column-start: 2
+    -ms-grid-column-end: 3
+    @supports( grid-area: auto )
+      padding: unset
+    @include columns(4, $column-gap-base, 100%, div)
+    .col
+      margin-top: 56px
+    span
+      grid-column-start: 1
+      grid-column-end: 5
+      -ms-grid-column-start: 1
+      -ms-grid-column-end: 5
+
+// Small Desktop
+@media all and (max-width: $guide-content-width * 1.66)
+  .guide-header, .page-header
+    grid-template-columns: auto 80% auto
+    -ms-grid-template-columns: auto 80% auto
+    .header-content
+      min-width: 80%
+
+  .end-of-page-cta
+    @include container($page-content-margin, $page-content-width)
+    img, svg
+      width: 80%
+      height: auto
+
+  .page-container
+    .page-content
+      .team-member-container
+        @include columns(1, 0%, 100%, "div")
+        grid-template-columns: 100% !important
+        h1
+          text-align: center
+        &>div
+          margin-right: 0
+          .team-member-profile
+            width: 240px
+            padding-top: 240px
+            margin-left: calc(50% - 120px)
+        .around-the-web
+          display: block !important
+          span
+            display: block
+            width: 100%
+
+  footer
+    section
+      grid-template-columns: repeat(3, 1fr)
+      -ms-grid-template-columns: repeat(3, 1fr)
+      .col
+          margin-top: 30px
+      span
+          grid-column-end: 4
+
+// Large Tablet
+@media all and (max-width: $guide-content-width * 1.26)
+  .guide-header, .page-header
+    padding: 0 3vw 0 3vw
+    grid-template-columns: 100%
+    grid-column-gap: 0
+    -ms-grid-template-columns: 100%
+    -ms-grid-column-gap: 0
+    .header-content
+      grid-column-start: 1
+      grid-column-end: 2
+      -ms-grid-column-start: 1
+      -ms-grid-column-end: 2
+      min-width: 100%
+
+  .page-container
+    .team-profiles-container
+      @include columns(6, 0, 100%, a)
+
+// Small Tablet
+@media all and (max-width: $guide-content-width * 1.06)
+  .guide-header, .page-header
+    padding: 0 5vw 0 5vw
+  .guide-container
+    padding: 0 5vw 0 5vw
+    grid-template-columns: 100%
+    grid-column-gap: 0
+    -ms-grid-template-columns: 100%
+    -ms-grid-column-gap: 0
+    .page-content
+      max-width: 100%
+
+  .row
+    flex-wrap: wrap
+    flex-direction: column
+    .col
+      width: 100%
+  .end-of-page-cta
+    .cta-content
+      @include columns(1, 0%, 100%, "div")
+      img, svg
+        width: 40%
+        height: auto
+        margin-bottom: $spacing-v-default
+  footer
+    section
+        grid-template-columns: 100%
+        span
+            grid-column-end: 2
+  .page-container
+    .team-profiles-container
+      @include columns(4, 0, 100%, a)
+
+// Mobile
+@media all and (max-width: $guide-content-width * 0.8)
+  .page-container
+    @include container(5%, 90%)
+    .team-profiles-container
+      @include columns(3, 0, 100%, a)
+    .page-content
+      .team-member-container
+        @include columns(1, 0%, 100%, "div")
+        grid-template-columns: 100% !important
+        h1
+          text-align: left
+        &>div
+          .team-member-profile
+            width: 100%
+            padding-top: 100%
+          .around-the-web
+            display: block !important
+            span
+              display: block
+              width: 100%
+
+  .end-of-page-cta
+    .cta-content
+      img, svg
+        width: 40%
+        height: auto

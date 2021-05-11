@@ -1,0 +1,288 @@
+/*! purgecss start ignore */
+input[type=text], input[type=button]
+  -webkit-appearance: none
+  -webkit-border-radius: 0
+
+.grecaptcha-badge
+  visibility: hidden
+
+fieldset.accessKey
+  border: none
+  padding: 0
+  span
+    input[type='text']
+      width: $spacing-h-default*1.75
+      height: $spacing-v-default*2
+      font-size: $lead-font-size*1.5
+      text-transform: uppercase
+      background-color: transparent
+      border: none
+      border-bottom: $border-width-base*1.5 solid $dark-gray
+      outline: none
+      text-align: center
+      line-height: 1em
+      &:focus
+        border-bottom-color: $primary-purple
+        background-color: rgba($primary-purple-accent, 0.1)
+    &:nth-child(6), &:nth-child(11), &:nth-child(16)
+      &:before
+        display: inline-block
+        position: relative
+        content: '\2014'
+        height: 100%
+        margin-left: $spacing-h-default/3
+        margin-right: $spacing-h-default/2
+
+label
+  display: block
+  width: 100%
+  transition: all ease 250ms
+  cursor: text
+  box-sizing: border-box
+
+textarea
+  resize: vertical
+  max-height: 500px
+  min-height: 200px
+
+input[type=text], textarea, .multiselect
+  width: 100%
+  box-sizing: border-box
+  z-index: 5
+  cursor: text
+  font-size: $default-font-size
+  padding: $spacing-base*3.5 $spacing-h-default 12px $spacing-base*2
+  border-radius: $border-radius-base/2
+  border: $border-width-base solid $dark-gray-lightest
+  background-color: $white
+  outline: none
+  &.error
+    margin-top: $spacing-v-default/2
+    border-color: $error
+    box-shadow: $shadow-neumorphic-error
+  &:focus, &.active
+    border-color: $primary-purple
+    box-shadow: $shadow-neumorphic-primary
+
+.multiselect
+  position: relative
+  padding: $spacing-base*2.5 $spacing-h-default $spacing-base*2.25 $spacing-base*2
+  cursor: pointer
+  margin-bottom: $spacing-v-default
+  z-index: 10
+  &> label
+    position: relative
+    cursor: pointer
+    font-size: $default-font-size
+    z-index: 20
+
+.input-help
+  font-size: $small-font-size
+  font-color: $dark-gray-lightest
+  &.error
+    color: $error
+    position: absolute
+    top: -$spacing-v-default/2
+  &.selection
+    color: $link-color
+    text-decoration: underline
+    &:hover
+      color: $link-color-hover
+
+.checkbox
+  &+.input-help.error
+    position: relative
+    margin-left: $spacing-h-default*2 + 2px
+
+.multiselect-options
+  position: relative
+  ul
+    z-index: 5
+    width: 100%
+    list-style-type: none
+    box-sizing: border-box
+    padding: $spacing-base*2.5 $spacing-h-default 0 $spacing-base*2
+    margin-bottom: 0
+    li
+      label.checkbox .checkmark
+        background-color: $white
+      &:last-of-type
+        margin-bottom: $spacing-v-default/2
+
+input[type=text] + label, textarea + label
+  position: absolute
+  font-size: $default-font-size
+  z-index: 10
+  top: $spacing-v-default - 2px
+  left: 18px
+
+input[type=text]:focus + label, textarea:focus + label, input[type=text].notempty + label, textarea.notempty + label
+  top: $spacing-base
+  left: 18px
+  font-size: $small-font-size
+
+input[type=text].error + label, textarea.error + label
+  top: $spacing-v-default + ($spacing-v-default/2) - 2px
+
+input[type=text].error:focus + label, textarea.error:focus + label, input[type=text].error.notempty + label, textarea.error.notempty + label
+  top: $spacing-base + ($spacing-v-default/2)
+
+input:required + label:after, textarea:required + label:after, .required:after
+  content: "*"
+  width: 8px
+  height: 8px
+  position: relative
+  margin-left: 2px
+  color: $error
+
+.switch
+  position: relative
+  display: inline-block
+  width: $spacing-h-default*3
+  height: $spacing-v-default*1.25
+  border: $border-width-base solid $white
+  border-radius: $spacing-v-default * .75
+  input[type='checkbox']
+    opacity: 0
+    width: 0
+    height: 0
+    &:checked + .slider
+      background: $primary-purple-shade-1
+      &:before
+        -webkit-transform: translateX(18px)
+        -ms-transform: translateX(18px)
+        transform: translateX(18px)
+        background: $white
+    &:focus + .slider
+      outline: $white solid $border-width-base
+      outline-offset: $border-width-base*2
+  .slider
+    position: absolute
+    cursor: pointer
+    border-radius: $spacing-v-default * .75
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    background: $dark-gray
+    -webkit-transition: 250ms
+    transition: 250ms
+    &:before
+      position: absolute
+      border-radius: 50%
+      content: ""
+      height: 22px
+      width: 22px
+      left: 2px
+      bottom: 2px
+      background: $white
+      -webkit-transition: 250ms
+      transition: 250ms
+
+label.checkbox
+  display: block
+  position: relative
+  padding-left: 35px
+  margin-bottom: 12px
+  cursor: pointer
+  font-size: $default-font-size
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  .checkmark
+    position: absolute
+    top: 0
+    left: 0
+    height: 25px
+    width: 25px
+    background-color: #eee
+    border: $border-width-base*1.5 solid rgba($primary-purple-shade-1, 0.6)
+    box-sizing: border-box
+    border-radius: $border-radius-base/3
+    &:after
+      content: ""
+      position: absolute
+      display: none
+      left: 6px
+      top: 2px
+      width: 5px
+      height: 10px
+      border: solid white
+      border-width: 0 3px 3px 0
+      -webkit-transform: rotate(45deg)
+      -ms-transform: rotate(45deg)
+      transform: rotate(45deg)
+  &.error
+    .checkmark
+      border-color: $error
+    &:hover
+      .checkmark
+        border-color: rgba($primary-purple-shade-1, 0.6)
+  input[type=checkbox]
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+    &:checked
+      &~ .checkmark
+        background-color: $primary-purple-shade-1
+        &:after
+          display: block
+    &:focus
+      ~ .checkmark
+        outline: $secondary-blue-shade-1 solid $border-width-base
+        outline-offset: $border-width-base
+  &:hover
+    input[type=checkbox] ~ .checkmark
+      background-color: rgba($primary-purple-accent, 0.2)
+    input[type=checkbox]:checked ~ .checkmark
+      background-color: $primary-purple-shade-2
+      border-color: $primary-purple-shade-2
+
+#app
+  &.darkMode
+    fieldset.accessKey
+      span
+        input[type='text']
+          color: $white
+          border-bottom-color: $white
+          &:focus
+            background-color: rgba($link-color-dark, 0.1)
+            border-bottom-color: $primary-purple-accent
+
+    input[type=text], textarea, .multiselect
+      background-color: $background-dark-lighter
+      color: $white
+      &.error
+        border-color: $error-dark-mode
+        box-shadow: $shadow-neumorphic-dark
+      &:focus, &.active
+        border-color: $link-color-dark
+        box-shadow: $shadow-neumorphic-dark
+
+    input:required + label:after, textarea:required + label:after, .required:after
+      color: $error-dark-mode
+
+    label.checkbox
+      .checkmark
+        background-color: $background-dark-lighter
+        border-color: $link-color-dark
+        &:hover
+          .checkmark
+            border-color: $link-color-dark-hover
+      input[type=checkbox]
+        &:focus
+          ~ .checkmark
+            outline-color: $white
+
+    .input-help
+      &.error
+        color: $error-dark-mode
+      &.selection
+        color: $link-color-dark
+        &:hover
+          color: $link-color-dark-hover
+
+/*! purgecss end ignore */

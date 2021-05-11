@@ -1,0 +1,140 @@
+@import 'common'
+
+$footer-height: 520px
+
+footer
+  min-height: $footer-height
+  width: 100%
+  color: $white
+  position: relative
+  background-color: $primary-purple
+  z-index: 5
+  section
+    z-index: 10
+    margin-bottom: 0
+    padding-bottom: $spacing-v-default
+    .logo
+      position: relative
+      margin-top: 30px
+      flex: 1
+      img
+        display: block
+        width: 60%
+        max-width: 300px
+        margin-bottom: $spacing-v-default
+      h4
+        margin-bottom: $spacing-v-default/2
+      p
+        margin-bottom: $spacing-h-default/2
+      >a:last-child
+        display: inline-block
+        margin-bottom: $spacing-h-default
+        margin-top: $spacing-h-default
+    ul
+      padding: 0
+      margin-top: $spacing-v-default/2
+      li
+        list-style: none
+        margin-bottom: $spacing-v-default/2
+        a
+          font-size: $h4-font-size
+          color: $white
+          text-decoration: none
+          &:hover
+            color: $white
+            text-decoration: underline
+  .utility
+    z-index: 10
+    grid-column-start: 1
+    grid-column-end: 4
+    svg, img
+      width: $lead-font-size
+      height: $lead-font-size
+      display: inline-block
+    span.line
+      display: block
+      margin-bottom: $spacing-v-default
+      &.toggle
+        display: flex
+        align-items: center
+      span.label
+        display: flex
+        align-items: center
+        img, svg
+          display: inline-block
+          margin: 0 $spacing-h-default/2 0 $spacing-h-default
+        span
+          display: inline-block
+          margin-top: 2px
+
+      a
+        color: $white
+        &:hover
+          color: $white-darkest
+
+  &:after
+    background-image: url('../../images/footer-bkg-web.svg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position-y: 0
+    width: 100%
+    height: 100%
+    content: " "
+    position: absolute
+    top: 0
+    left: 0
+    z-index: -1
+
+  &:before
+    background-color: $background-light
+    width: 100%
+    height: $footer-height/5
+    margin-top: -10px
+    content: " "
+    position: absolute
+    top: 0
+    z-index: -5
+
+
+
+#app
+  &.darkMode
+    footer
+      opacity: $default-fade-opacity
+      color: $white
+      a
+        color: $white
+      &:before
+        background-color: $background-dark
+
+/* sm desktop */
+@media all and (max-width: $guide-content-width * 1.66)
+  footer
+    section
+      .logo
+        grid-column-start: 1
+        grid-column-end: 4
+        img
+          width: 126px
+
+/* small tablet */
+@media all and (max-width: $guide-content-width * 1.06)
+  footer
+    section
+      .col
+        margin-top: $spacing-v-default/2
+        h3
+          font-size: $h4-font-size
+        ul
+          margin-bottom: $spacing-v-default/2
+          li
+            a
+              font-size: $lead-font-size
+      .logo
+        grid-column-end: 2
+        img
+          width: 60%
+
+    .utility
+      grid-column-start: unset
+      grid-column-end: unset
