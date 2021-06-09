@@ -1,5 +1,5 @@
 {
-  "name": "bellese-design-system",
+  "name": "@bellese/bellese-design-system",
   "version": "0.1.0",
   "description": "Design System powering Bellese open source projects and Bellese.io.",
   "main": "app.js",
@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Bellese/Bellese-Design-System/issues"
   },
-  "homepage": "https://github.com/Bellese/Bellese-Design-System#readme"
+  "homepage": "https://github.com/Bellese/Bellese-Design-System#readme",
+  "keywords": [
+    "design",
+    "system",
+    "bellese"
+  ]
 }
