@@ -1,8 +1,9 @@
 {
   "name": "@bellese/bellese-design-system",
-  "version": "0.1.0",
+  "version": "0.2.17",
   "description": "Design System powering Bellese open source projects and Bellese.io.",
-  "main": "app.js",
+  "main": "src/scripts/index.js",
+  "sass": "src/styles/index.sass",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,5 +21,8 @@
     "design",
     "system",
     "bellese"
-  ]
+  ],
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.3"
+  }
 }
