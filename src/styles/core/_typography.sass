@@ -16,8 +16,10 @@ $h3-font-size:          32px
 $h3-line-height:        45px
 $h4-font-size:          $lead-font-size
 $h4-line-height:        30px
-$h5-font-size:          $default-font-size
+$h5-font-size:          20px
 $h5-line-height:        30px
+$h6-font-size:          $default-font-size
+$h6-line-height:        30px
 
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800;900&display=swap')
 
@@ -55,10 +57,17 @@ h4, .h4
   margin: $spacing-v-default 0 ($h4-line-height - $h4-font-size) 0
 
 h5, .h5
-  font-size: $default-font-size
-  line-height: $default-line-height
-  font-weight: 600
+  font-size: $h5-font-size
+  line-height: $h5-line-height
+  font-weight: 800
   margin: $spacing-v-default 0 ($h5-line-height - $h5-font-size) 0
+
+h6, .h6
+  font-size: $h6-font-size
+  line-height: $h6-line-height
+  font-weight: 600
+  opacity: .8
+  margin: $spacing-v-default 0 ($h6-line-height - $h6-font-size) 0
 
 p, ul, li
   font-size: $default-font-size
@@ -84,7 +93,7 @@ p, ul, li
 strong
   font-weight: 800
 
-h2, h3, h4, h5, h6
+h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
   &.subtitle
     font-weight: normal
     opacity: 0.8
@@ -95,7 +104,7 @@ a
   &:hover
     color: $primary-purple-accent
 
-article blockquote:not(.instagram-media)
+blockquote:not(.instagram-media)
   margin: 0 0 $spacing-v-default 0
   padding: 16px 40px 16px 80px
   position: relative

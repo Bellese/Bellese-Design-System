@@ -3,8 +3,8 @@
         <header :class="(type === 'article' ? 'guide-header' : 'page-header') + (invert ? ' invert': '')" role="navigation" v-if="(hidden !== true)">
             <div class="header-content">
                 <router-link :to="'/'" v-if="type === 'article' || type === 'article-wide'">
-                    <img :src="logo.full.color" alt="Bellese Logo With Gradient" class="logo color" />
-                    <img :src="logo.full.reversed" alt="Bellese Logo Solid White" class="logo reversed" />
+                    <img :src="logo.icon.color" alt="Bellese Logo With Gradient" class="logo color" />
+                    <img :src="logo.icon.reversed" alt="Bellese Logo Solid White" class="logo reversed" />
                     <div class="site-name">
                         <img :src="logo.wordmark.color" alt="Bellese wordmark" class="wordmark color"/>
                         <img :src="logo.wordmark.reversed" alt="Bellese wordmark" class="wordmark reversed"/>

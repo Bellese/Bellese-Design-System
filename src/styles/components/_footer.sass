@@ -9,6 +9,10 @@ footer
   position: relative
   background-color: $primary-purple
   z-index: 5
+  a
+    color: $white
+    &:hover
+      color: $white-darker
   section
     z-index: 10
     margin-bottom: 0
@@ -101,9 +105,6 @@ footer
   &.darkMode
     footer
       opacity: $default-fade-opacity
-      color: $white
-      a
-        color: $white
       &:before
         background-color: $background-dark
 

@@ -6,7 +6,8 @@
                     <img :src="logo.url" :alt="logo.alt"/>
                 </a>
                 <p v-html="footerCTA.text" v-if="footerCTA"></p>
-                <a :href="footerCTA.url" class="button inverse" v-if="footerCTA">{{ footerCTA.label }}</a>
+                <a :href="footerCTA.url" class="button inverse" v-if="footerCTA && footerCTA.external" target="_blank" rel="noreferrer">{{ footerCTA.label }}</a>
+                <a :href="footerCTA.url" class="button inverse" v-else-if="footerCTA">{{ footerCTA.label }}</a>
             </div>
             <div class="col" v-for="(col, index) in cols" :index="index">
                 <h3>{{ col.title }}</h3>
