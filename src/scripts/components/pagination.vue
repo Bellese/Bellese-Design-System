@@ -100,7 +100,6 @@
 </template>
 
 <script>
-    import '../../css/components/_pagination.sass'
     export default {
         name: "pagination",
         data() {

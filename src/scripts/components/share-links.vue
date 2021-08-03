@@ -29,7 +29,6 @@
 </template>
 
 <script>
-    import '../../css/components/_share.sass'
     export default {
         name: "share-links",
         props: ['title', 'message', 'orientation', 'image', 'content'],

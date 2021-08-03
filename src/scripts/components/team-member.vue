@@ -16,7 +16,6 @@
 </template>
 
 <script>
-    import '../../css/components/_team.sass'
     export default {
         name: "team-member-profile",
         data() {

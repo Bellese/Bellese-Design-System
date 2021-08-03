@@ -44,7 +44,6 @@
 </template>
 
 <script>
-    import '../../css/components/_timeline.sass'
     import _ from 'lodash'
 
     export default {

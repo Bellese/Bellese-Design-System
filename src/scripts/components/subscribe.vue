@@ -108,7 +108,6 @@
 
 <script>
     import axios from 'axios';
-    import '../../css/components/_subscribe.sass'
     import validator from "validator";
 
     export default {

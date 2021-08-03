@@ -3,7 +3,6 @@
 </template>
 
 <script>
-    import '../../css/components/_mapbox.sass'
     import Mapbox from "mapbox-gl";
 
     export default {

@@ -27,7 +27,6 @@
 </template>
 
 <script>
-    import '../../css/components/_author.sass'
     export default {
         name: "author",
         props: ['author', 'isPressContact', 'vertical', 'showOrg']
