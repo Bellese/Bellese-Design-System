@@ -133,14 +133,14 @@
             border-radius: 0
             content: ' '
             left: 50%
-          &.router-link-exact-active
+          &.router-link-exact-active, &.nuxt-link-exact-active
             &:after
               background-color: rgba($primary-purple, .6)
               height: $border-width-base*2
               width: 100%
               left: 0
               right: 0
-          &.router-link-active:not(.router-link-exact-active):not(:hover)
+          &.router-link-active:not(.router-link-exact-active):not(:hover), &.nuxt-link-active:not(.nuxt-link-exact-active):not(:hover)
             &:after
               background-color: rgba($primary-purple, .6)
               border-radius: $spacing-base/4

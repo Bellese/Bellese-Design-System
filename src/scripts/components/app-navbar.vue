@@ -26,7 +26,8 @@
                             v-for="(link, index) in links"
                             v-bind:key="index"
                         >
-                            <router-link :to="link.route">{{ link.name }}</router-link>
+                            <a :href="link.route" v-html="link.name" v-if="link.route.startsWith('http')" target="_blank" rel="noreferrer"></a>
+                            <router-link :to="link.route" v-html="link.name" v-else></router-link>
                         </li>
                     </ul>
                     <div class="mobile-nav">
@@ -45,11 +46,13 @@
                             <router-link to="/" class="mobile-home-link">
                                 <li style="--animation-order: 1;">Home</li>
                             </router-link>
-                            <router-link :to="link.route" v-for="(link, index) in links" :key="index">
-                                <li :style="'--animation-order: ' + (index + 2) + ';'">
-                                    {{ link.name }}
-                                </li>
+                            <router-link :to="link.route" v-for="(link, index) in links" :key="index" v-if="!link.route.startsWith('http')">
+                                <li :style="'--animation-order: ' + (index + 2) + ';'" v-html="link.name"></li>
                             </router-link>
+                            <a :href="link.route" v-for="(link, index) in links"
+                               v-if="link.route.startsWith('http')" target="_blank" rel="noreferrer">
+                                <li :style="'--animation-order: ' + (index + 2) + ';'" v-html="link.name"></li>
+                            </a>
                             <div class="sr-only">
                                 <a href="#" v-on:click.prevent="hideMobileNav">Close Navigation</a>
                             </div>

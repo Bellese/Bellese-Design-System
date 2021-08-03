@@ -1,6 +1,6 @@
 {
   "name": "@bellese/bellese-design-system",
-  "version": "0.3.2",
+  "version": "0.3.7",
   "description": "Design System powering Bellese open source projects and Bellese.io.",
   "main": "src/scripts/index.js",
   "sass": "src/styles/index.sass",
