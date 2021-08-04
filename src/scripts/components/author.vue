@@ -14,12 +14,12 @@
                         <img class="author-org" :src="author.external_organization.logo.url" :alt="author.external_organization + ' logo'"/>
                     </div>
                     <div v-else-if="showOrg">
-                        <img class="author-org" src="../../images/Horizontal_RGB_Gradient.svg" alt="Bellese logo"/>
+                        <img class="author-org" :src="logos.full" alt="Bellese logo"/>
                     </div>
                 </div>
                 <div v-if="isPressContact" class="contact-info">
-                    <span v-if="author.phone" class="phone"><img svg-inline svg-sprite src="../../images/icons/mobile-light.svg"/> {{ author.phone | formatPhone }}</span>
-                    <span class="email"><img svg-inline svg-sprite src="../../images/icons/mail-bulk-light.svg"/> <a href="mailto:press@bellese.io">press@bellese.io</a></span>
+                    <span v-if="author.phone" class="phone"><img svg-inline svg-sprite src="@bellese/bellese-design-system/src/images/icons/mobile-regular.svg"/> {{ author.phone | formatPhone }}</span>
+                    <span class="email"><img svg-inline svg-sprite src="@bellese/bellese-design-system/src/images/icons/mail-bulk-regular.svg"/> <a href="mailto:press@bellese.io">press@bellese.io</a></span>
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
 <script>
     export default {
         name: "author",
-        props: ['author', 'isPressContact', 'vertical', 'showOrg']
+        props: ['author', 'isPressContact', 'vertical', 'showOrg', 'logos']
     }
 </script>
 

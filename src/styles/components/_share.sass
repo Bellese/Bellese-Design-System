@@ -1,0 +1,99 @@
+@import 'common'
+
+/*! purgecss start ignore */
+.share-links
+  &.vertical
+    width: 36px
+  a
+    outline-offset: 4px
+    cursor: pointer
+    svg, path
+      width: 36px
+      max-height: 36px
+      margin: 0
+      padding: 0
+      fill: $dark-gray-min-wcag
+      color: $dark-gray-min-wcag
+      outline: none
+      cursor: pointer
+    &.bookmark
+      svg, path
+        max-height: 48px
+        max-width: 32px
+    &:hover
+      &.twitter
+        svg, path
+          fill: #1DA1F2 //twitter brand color
+          color: #1DA1F2 //twitter brand color
+      &.facebook
+        svg, path
+          fill: #0782ec //facebook brand color
+          color: #0782ec //facebook brand color
+      &.linkedin
+        svg, path
+          fill: #0A66C2 //linkedin brand color
+          color: #0A66C2 //linkedin brand color
+      &.pinterest
+        svg, path
+          fill: #E60023 //pinterest brand color
+          color: #E60023 //pinterest brand color
+      &.email
+        svg, path
+          fill: $dark-gray
+          color: $dark-gray
+      &.bookmark
+        svg, path
+          fill: $secondary-blue
+          color: $secondary-blue
+    &.bookmark.saved
+      svg, path
+        fill: $secondary-blue
+        color: $secondary-blue
+      &:hover
+        svg, path
+          fill: $secondary-blue-shade-1
+          color: $secondary-blue-shade-1
+
+
+#app
+  &.darkMode
+    .share-links
+      a
+        svg, path
+          fill: $dark-gray-min-wcag-dark
+          color: $dark-gray-min-wcag-dark
+        &:hover
+          &.twitter
+            svg, path
+              fill: #1DA1F2 //twitter brand color
+              color: #1DA1F2 //twitter brand color
+          &.facebook
+            svg, path
+              fill: lighten(#0782ec, 10%) //facebook brand color, lightened
+              color: lighten(#0782ec, 10%) //facebook brand color, lightened
+          &.linkedin
+            svg, path
+              fill: lighten(#0A66C2, 10%)  //linkedin brand color, lightened
+              color: lighten(#0A66C2, 10%)  //linkedin brand color, lightened
+          &.pinterest
+            svg, path
+              fill: darken(#E60023, 10%)  //pinterest brand color, darkened
+              color: darken(#E60023, 10%)  //pinterest brand color, darkened
+          &.email
+            svg, path
+              fill: $primary-purple-accent-lighter
+              color: $primary-purple-accent-lighter
+          .bookmark
+            svg, path
+              fill: $secondary-blue-dark-mode
+              color: $secondary-blue-dark-mode
+        &.bookmark.saved
+          svg, path
+            fill: $secondary-blue-dark-mode
+            color: $secondary-blue-dark-mode
+          &:hover
+            svg, path
+              fill: $secondary-blue-dark-hover
+              color: $secondary-blue-dark-hover
+
+/*! purgecss end ignore */

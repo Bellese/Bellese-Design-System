@@ -1,9 +1,10 @@
 import './app-footer';
 import './app-navbar';
 import './author';
-import './mapbox';
 import './pagination';
 import './share-links';
 import './subscribe';
-import './team-member';
 import './timeline';
+import './breadcrumb';
+import './code-block';
+import './doc-page';

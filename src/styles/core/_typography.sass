@@ -94,10 +94,31 @@ p, ul, li
 strong
   font-weight: 800
 
-h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6
   &.subtitle
     font-weight: normal
     opacity: 0.8
+  &.accent
+    position: relative
+    &:after
+      position: absolute
+      display: inline-block
+      height: 8px
+      width: 120px
+      background-color: #63167E
+      content: " "
+      bottom: -16px
+      left: 0
+    &.white-accent
+      &:after
+        background-color: #DA98F1
+  &.padded
+    margin-bottom: 48px
+
+h1, .h1
+  &.accent
+    &:after
+      left: 4px
 
 a
   color: $primary-purple
@@ -134,13 +155,55 @@ blockquote:not(.instagram-media)
     border-left: solid $border-width-base*3 $link-color
     opacity: $default-fade-opacity
 
+.nav .fas, .nav .svg-inline--fa
+  font-size: 16px
+  margin-left: 4px
+
+.h4.breadcrumb
+  margin-top: 42px !important
+  a
+    text-decoration: none !important
+.codeblock
+  margin: 0 !important
+  padding: 0 !important
+
+code
+  display: inline-block
+  padding: 0 4px
+  border-radius: 4px
+  position: relative
+  line-height: 1.4em
+  font-family: monospace
+  font-size: 16px
+  overflow: scroll
+  margin-bottom: -5px
+  span[class^='hljs-']
+    font-family: monospace
+    font-size: 16px
+    overflow: scroll
+  &.language-bash
+    padding-left: 32px
+    &:before
+      display: block
+      position: absolute
+      content: '$'
+      top: calc(50% - 11px)
+      left: 16px
+      color: #ffffff
+
+pre code
+  display: block
+  padding: 16px
+  border-radius: 8px
+  margin-bottom: 16px
+
 
 #app
   &.darkMode
     article > blockquote
       &:before
         border-color: $link-color-dark
-        background-image: url('@bellese/bellese-design-system/src/images/icons/quote-left-solid-white.svg')
+        background-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="quote-left" class="svg-inline--fa fa-quote-left fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#FFFFFF" d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"></path></svg>')
 
 /* small tablet */
 @media all and (max-width: $guide-content-width * 1.06)

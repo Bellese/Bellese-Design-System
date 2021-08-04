@@ -44,6 +44,7 @@
 </template>
 
 <script>
+    import '@bellese/bellese-design-system/src/styles/components/_timeline.sass'
     import _ from 'lodash'
 
     export default {

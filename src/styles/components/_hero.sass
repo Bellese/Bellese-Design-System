@@ -1,3 +1,5 @@
+@import '../core/core'
+
 .hero
   box-sizing: border-box
   padding: 0 0 $spacing-v-default*2 0
@@ -55,6 +57,7 @@
             z-index: 1
             position: absolute
             content: ' '
+            background: url('~@bellese/bellese-design-system/src/images/hero-content-bkg.svg')
             background-repeat: no-repeat
             background-position: 0px
             background-size: contain
@@ -107,6 +110,31 @@
           .location
             text-transform: uppercase
             font-weight: 800
+    &.home
+      &.webp
+        background-position: center
+      &.nowebp
+        background-position: center
+    &.about
+      .hero-content
+        div:first-child
+          max-width: 40%
+      &.webp
+        background-position: center
+      &.nowebp
+        background-position: center
+    &.overlay
+      background-color: $primary-purple-shade-2
+      .hero-content
+        color: $white
+        div:first-child
+          z-index: 100
+          &:after
+            background-image: url('~@bellese/bellese-design-system/src/images/hero-content-bkg-dark.svg')
+            opacity: 0.6
+            mix-blend-mode: multiply
+            filter: blur(88px)
+            z-index: -1
       &:before
         background: $gradient-primary-secondary-alt
         opacity: .9
@@ -142,9 +170,28 @@
   &.cover-nav
     margin-top: -122px
     z-index: 1
+    @extend .hero.home
 
 #app
   &.darkMode
+    .hero
+      &.home
+        .hero-content
+          &:not(.full-width)
+            div:first-child
+              color: $white
+              .button.gradient
+                @extend .button.inverse
+                &:after
+                  display: none
+                &:before
+                  display: none
+              &:after
+                background: url('~@bellese/bellese-design-system/src/images/hero-content-bkg-dark.svg')
+                background-repeat: no-repeat
+                opacity: 0.7
+                mix-blend-mode: lighten
+                filter: blur(118px)
 
 
 
@@ -176,6 +223,17 @@
       &:not(.full-width)
         padding-left: 5%
         padding-right: 5%
+      &.home
+        &.webp
+          background: linear-gradient(rgba(255, 255, 255, 0.55),rgba(255, 255, 255, 0.55))
+          background-position: center
+          background-size: cover
+        &.nowebp
+          background: linear-gradient(rgba(255, 255, 255, 0.55),rgba(255, 255, 255, 0.55))
+          background-position: center
+          background-size: cover
+        .hero-content
+          margin-top: 80px
   #app
     &.darkMode
       .hero
