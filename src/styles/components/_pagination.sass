@@ -10,6 +10,8 @@
       margin-left: $spacing-h-default/4
       margin-right: $spacing-h-default/4
       position: relative
+      box-sizing: border-box
+      border: $border-width-base*1.5 solid transparent
       svg
         height: $default-font-size
         width: $default-font-size
@@ -19,11 +21,11 @@
         path
           fill: $secondary-blue !important
       &.start
-        padding-left: $spacing-h-default*2
+        padding-left: $spacing-h-default*3
         svg
           left: $spacing-h-default
       &.end
-        padding-right: $spacing-h-default*2
+        padding-right: $spacing-h-default*3
         svg
           right: $spacing-h-default
       &.current
@@ -38,6 +40,23 @@
         svg
           path
             fill: $primary-purple !important
-      &:disabled
+      &:disabled:not(.current)
         @extend button:hover
         border: $border-width-base*1.5 solid rgba($disabled-gray, $disabled-opacity)
+
+#app
+  &.darkMode
+    .pagination
+      .pagination-container
+        button
+          border-width: $border-width-base*1.5 !important
+          &:hover
+            border-width: $border-width-base*1.5 !important
+            svg
+              height: $default-font-size
+              width: $default-font-size
+              position: absolute
+              margin-top: 3px
+              outline: none
+              path
+                fill: $white !important

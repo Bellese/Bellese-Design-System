@@ -1,10 +1,13 @@
 /*! purgecss start ignore */
+@import 'common'
+
 .card
   text-decoration: none
+  transition: all 250ms ease
+  margin-bottom: $spacing-h-default*2
   article
     box-shadow: $shadow-100
     background-color: $white
-    margin-bottom: $spacing-h-default*2
     transition: all 250ms ease
     .card-logo, .outlet-logo
       height: 150px
@@ -48,15 +51,16 @@
       color: $dark-gray
     &:after
       display: none
-    &:hover
-      box-shadow: $shadow-200
-      margin-top: -$spacing-h-default
-      margin-bottom: $spacing-h-default*3
-  &:focus
+  &:hover
+    margin-top: -$spacing-h-default
+    margin-bottom: $spacing-h-default*3
     article
       box-shadow: $shadow-200
-      margin-top: -$spacing-h-default
-      margin-bottom: $spacing-h-default*3
+  &:focus
+    margin-top: -$spacing-h-default
+    margin-bottom: $spacing-h-default*3
+    article
+      box-shadow: $shadow-200
 
 .callout
   padding: $spacing-v-default/2 $spacing-h-default*2
