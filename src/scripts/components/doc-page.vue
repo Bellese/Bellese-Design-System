@@ -1,35 +1,49 @@
 <template>
-    <div class="page-container left-aside-page">
-        <div class="content-header" v-if="category || breadcrumb">
-            <h1 class="micro" v-if="category">{{ category }}</h1>
-            <h2 class="accent padded" v-if="category">{{ title }}</h2>
-            <Breadcrumb v-if="breadcrumb" :breadcrumb="breadcrumb"/>
+  <div>
+    <section class="hero page slim" v-if="category || breadcrumb">
+      <div class="hero-content">
+        <div>
+          <h1 class="micro">{{ category }}</h1>
+          <h2 class="accent white-accent">{{ title }}</h2>
         </div>
-        <div class="content-header" v-else>
-            <h1 class="accent" >{{ title }}</h1>
+      </div>
+    </section>
+    <div class="page-container">
+      <div class="page-content">
+        <div class="content-header" v-if="!category && !breadcrumb">
+          <h1 class="accent" >{{ title }}</h1>
         </div>
-        <main class="left-aside-content-container" role="main">
-            <section class="page-nav">
-                <aside ref="page-nav">
-                    <h4>Sections</h4>
-                    <ul class="category-list">
-                        <li v-for="(section, index) in sectionLabels" ref="category-list-item">
-                            <a :href="'#' + section.id">{{ section.name | capitalizeFirst }}</a>
-                        </li>
-                    </ul>
-                </aside>
-            </section>
-            <section class="page-content" ref="page-content" id="main-content" style="margin-top:16px">
-                <slot></slot>
-            </section>
-        </main>
+        <Breadcrumb :breadcrumb="breadcrumb"/>
+      </div>
     </div>
+    <div class="page-container left-aside-page">
+      <main class="left-aside-content-container" role="main">
+        <section class="page-nav">
+          <aside ref="page-nav">
+            <h4>Sections</h4>
+            <ul class="category-list">
+              <li v-for="(section, index) in sectionLabels" ref="category-list-item">
+                <a :href="'#' + section.id">{{ section.name | capitalizeFirst }}</a>
+              </li>
+            </ul>
+          </aside>
+        </section>
+        <section class="page-content" ref="page-content" id="main-content" style="margin-top:16px">
+          <slot></slot>
+        </section>
+      </main>
+    </div>
+  </div>
 </template>
 
 <script>
+    import Breadcrumb from "./breadcrumb.vue";
     export default {
         name: "DocPage",
-        data() {
+      components: {
+          Breadcrumb
+      },
+      data() {
             return {
                 navPosition: 0,
                 sectionsEls: null,

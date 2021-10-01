@@ -28,6 +28,22 @@
     background-repeat: no-repeat
     box-sizing: border-box
     background-attachment: scroll
+    &.slim
+      background-color: $dark-gray-lighter
+      height: auto
+      min-height: 110px
+      .hero-content:not(.full-width)
+        color: $white
+        margin-top: 40px
+        margin-bottom: 40px
+        height: auto
+        min-height: 110px
+        div:first-child
+          height: auto
+          min-height: 110px
+          &:after
+            display: none
+            background: none
     .hero-content
       z-index: 10
       margin-top: 120px
@@ -171,6 +187,7 @@
     margin-top: -122px
     z-index: 1
     @extend .hero.home
+
 
 #app
   &.darkMode

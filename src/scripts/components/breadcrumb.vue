@@ -1,5 +1,5 @@
 <template>
-    <nav class="h4 breadcrumb">
+    <nav class="h4 breadcrumb" v-if="breadcrumbCount > 0">
         <span v-for="(crumb, index) in breadcrumbParsed" v-if="crumb !== ''" :key="index">
             <span>/</span>
             <router-link :to="generateBreadcrumbLink(breadcrumbParsed, index)" style="text-transform:capitalize">{{crumb}}</router-link>

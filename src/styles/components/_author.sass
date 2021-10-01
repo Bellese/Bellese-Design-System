@@ -50,14 +50,22 @@
       box-shadow: $shadow-neumorphic-light-img
       @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
         width: 100px + $spacing-h-default*3.5
+    img.author-org
+      max-width: 40%
+      min-height: 34px
+      height: auto
+      margin-top: 4px
+      margin-left: 2px
   &.vertical
     margin-right: 0
-    min-width: 240px
-    text-align: center
+    width: 33.33333333%
+    text-align: left
     > div
       flex-direction: column
-      justify-content: center
+      align-items: flex-start
+      justify-content: flex-start
       img.thumbnail
+        margin-bottom: 8px
         margin-right: 0
 
 #app
